@@ -1,12 +1,16 @@
 package com.es.eoi;
 
+import java.util.Scanner;
+
 public class BombSearch {
 	
 	public static void main(String [] args) {
 		
 		int[][] tablet = createTablet(10,10);
 		
-		putBombs(tablet,20);		
+		int bombs=insertData();
+		
+		putBombs(tablet,bombs);		
 		
 		paintTablet(tablet);		
 	
@@ -45,4 +49,13 @@ public class BombSearch {
 		System.out.println(tmp);
 	}
 
+	private static int insertData() {
+		
+		System.out.println("Introduce el numero de bombas");
+		
+		Scanner scanner= new Scanner(System.in);
+		
+		return scanner.nextInt();
+					
+	}
 }
