@@ -6,9 +6,11 @@ public class Main {
 
 		Cube cubo = new Cube();
 
+		//esta line es nueva
+		
 		cubo.height = Double.parseDouble(args[0]);
 		cubo.large =  Double.parseDouble(args[1]);;
-		cubo.length = Double.parseDouble(args[2]);;
+		
 
 		System.out.println("volumen: " + cubo.getVolume());
 
