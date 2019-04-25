@@ -6,11 +6,10 @@ public class BombSearch {
 		
 		int[][] tablet = createTablet(10,10);
 		
-		putBombs(tablet);		
+		putBombs(tablet,20);		
 		
-		paintTablet(tablet);
-				
-		
+		paintTablet(tablet);		
+	
 	}
 
 	private static int[][] createTablet(int height,int width) {
@@ -20,12 +19,16 @@ public class BombSearch {
 		return tablet;
 	}
 
-	private static void putBombs(int[][] tablet) {
+	private static void putBombs(int[][] tablet, int bombsNumber) {
 		
-		tablet[2][8]=1;
-		tablet[1][6]=1;
-		tablet[5][2]=1;
-		
+		for (int i = 0; i < bombsNumber; i++) {
+			
+			int xBomb = (int)Math.abs(Math.random()*10);
+			int yBomb=  (int)Math.abs(Math.random()*10);
+			
+			tablet[xBomb][yBomb]=1;
+		}
+			
 	}
 
 	private static void paintTablet(int[][] tablet) {
