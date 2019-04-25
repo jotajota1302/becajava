@@ -55,7 +55,9 @@ public class BombSearch {
 		
 		Scanner scanner= new Scanner(System.in);
 		
+		scanner.close();
+		
 		return scanner.nextInt();
-					
+				
 	}
 }
