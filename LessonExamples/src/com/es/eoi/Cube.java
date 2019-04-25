@@ -8,7 +8,7 @@ public class Cube {
 
 	double height;
 
-	double getVolume() {
+	public double getVolume() {
 
 		return height * large * length;
 

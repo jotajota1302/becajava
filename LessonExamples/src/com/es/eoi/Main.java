@@ -8,7 +8,7 @@ public class Main {
 
 		cubo.height = Double.parseDouble(args[0]);
 		cubo.large =  Double.parseDouble(args[1]);;
-		cubo.length = Double.parseDouble(args[2]);;
+		cubo.length = Double.parseDouble(args[0]);;
 
 		System.out.println("volumen: " + cubo.getVolume());
 
