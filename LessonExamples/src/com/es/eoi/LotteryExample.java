@@ -19,8 +19,6 @@ public class LotteryExample {
 		
 		String number= escaner.next();
 		
-		escaner.close();
-		
 		System.out.println("Introduce el dia de la semana (1-7):");
 		
 		escaner= new Scanner(System.in);
