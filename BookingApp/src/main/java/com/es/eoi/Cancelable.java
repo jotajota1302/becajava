@@ -1,4 +1,4 @@
-package com.es.eoi.booking;
+package com.es.eoi;
 
 public interface Cancelable {
 	
