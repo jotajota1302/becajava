@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: facenet
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: jjimerod
+Implementation-Vendor-Id: es.eoi
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/facenet
+Created-By: Maven Integration for Eclipse
+
