@@ -2,9 +2,12 @@ package es.eoi.facenet.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,15 @@ public class Assist {
 	private Integer id_event;
 
 	// mapeo
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_user")
+	private User user;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_event")
+	private Event event;
+	
 	
 	public Assist(Integer id_assist, Integer id_user, Integer id_event) {
 		this.id_assist = id_assist;
