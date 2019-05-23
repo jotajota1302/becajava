@@ -1,4 +1,4 @@
-package es.eoi.facenet;
+package es.eoi.redsocial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "es.eoi.repositories")
-@EntityScan( basePackages = {"es.eoi"} )
-@ComponentScan(basePackages = "es.eoi")
+@EntityScan( basePackages = {"es.eoi.redsocial"} )
+@ComponentScan(basePackages = "es.eoi.redsocial")
 @EnableAutoConfiguration
 public class FacenetApplication {
 
