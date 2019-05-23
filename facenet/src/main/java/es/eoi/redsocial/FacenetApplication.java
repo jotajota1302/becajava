@@ -1,4 +1,4 @@
-package es.eoi.facenet;
+package es.eoi.redsocial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

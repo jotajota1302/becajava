@@ -13,7 +13,7 @@
 	<artifactId>facenet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>facenet</name>
+	<name>redsocial</name>
 	<description>Facenet project</description>
 
 	<properties>
