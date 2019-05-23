@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.eoi.facenet.entities.TestEntity;
-import es.eoi.facenet.services.EntityService;
+import es.eoi.services.EntityService;
  
 @RestController
 public class EntityRestController {

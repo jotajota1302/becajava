@@ -1,4 +1,4 @@
-package es.eoi.facenet.services;
+package es.eoi.services;
 
 import java.util.List;
 
