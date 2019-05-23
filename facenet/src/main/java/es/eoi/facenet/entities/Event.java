@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -34,12 +36,17 @@ public class Event {
 
 	@OneToMany(mappedBy = "event")
 	private List<Assistance> assistances;
+	
+	@ManyToOne
+	@JoinColumn(name="id_user",referencedColumnName = "id")
+	private User user;
 
-	public Event(String name, String description, Date eventDate, List<Assistance> assistances) {
+	public Event(String name, String description, Date eventDate, List<Assistance> assistances, User user) {
 		this.name = name;
 		this.description = description;
 		this.eventDate = eventDate;
 		this.assistances = assistances;
+		this.user = user;
 	}
 
 	public int getId() {
@@ -81,5 +88,15 @@ public class Event {
 	public void setAssistances(List<Assistance> assistances) {
 		this.assistances = assistances;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 
 }

@@ -37,8 +37,7 @@ public class Message {
 	@OneToMany(mappedBy = "reaction")
 	private List<Reaction> reactions;
 
-	public Message(int id, String content, Date publishdate, User user, List<Reaction> reactions) {
-		this.id = id;
+	public Message(String content, Date publishdate, User user, List<Reaction> reactions) {
 		this.content = content;
 		this.publishdate = publishdate;
 		this.user = user;

@@ -58,10 +58,9 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Event> events;
 
-	public User(int id, String name, String surname, Date birthdate, Date stardate, String user, String pass,
+	public User(String name, String surname, Date birthdate, Date stardate, String user, String pass,
 			List<Relationship> relationships1, List<Relationship> relationships2, List<Reaction> reactions,
 			List<Assistance> assistances, List<Message> messages, List<Event> events) {
-		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.birthdate = birthdate;
@@ -75,7 +74,6 @@ public class User {
 		this.messages = messages;
 		this.events = events;
 	}
-
 	public int getId() {
 		return id;
 	}
