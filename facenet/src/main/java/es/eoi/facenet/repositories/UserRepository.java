@@ -3,10 +3,10 @@ package es.eoi.facenet.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import es.eoi.facenet.entities.TestEntity;
+import es.eoi.facenet.entities.User;
 
 
 @Repository
-public interface EntityRepository extends JpaRepository<TestEntity, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
 }

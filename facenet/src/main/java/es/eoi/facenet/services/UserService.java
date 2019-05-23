@@ -3,16 +3,16 @@ package es.eoi.facenet.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.eoi.facenet.entities.TestEntity;
-import es.eoi.facenet.repositories.EntityRepository;
+import es.eoi.facenet.entities.User;
+import es.eoi.facenet.repositories.UserRepository;
 
 @Service
-public class EntityService {
+public class UserService {
 	
 	@Autowired
-	EntityRepository repository;
+	UserRepository repository;
 	
-	public TestEntity getEntityById(Integer id) {				
+	public User getUserById(Integer id) {				
 		return this.repository.findById(id).get();		
 	}
 

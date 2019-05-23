@@ -5,17 +5,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.eoi.facenet.entities.TestEntity;
-import es.eoi.facenet.services.EntityService;
+import es.eoi.facenet.entities.User;
+import es.eoi.facenet.services.UserService;
  
 @RestController
-public class EntityRestController {
+public class UserRestController {
  
 	@Autowired
-	EntityService service;
+	UserService service;
 	
-    @GetMapping("/entities/{id}")
-    public TestEntity message(@PathVariable String id) {   
-    	return service.getEntityById(Integer.parseInt(id));
+    @GetMapping("/user/{id}")
+    public User message(@PathVariable String id) {   
+    	return service.getUserById(Integer.parseInt(id));
     }
 }
