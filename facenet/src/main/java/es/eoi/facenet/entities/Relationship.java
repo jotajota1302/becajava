@@ -20,11 +20,11 @@ public class Relationship {
 	@Column(name = "STATE")
 	private String name;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_user1", referencedColumnName = "id")
 	private User user1;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_user2", referencedColumnName = "id")
 	private User user2;
 

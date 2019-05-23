@@ -30,7 +30,7 @@ public class Message {
 	@Column(name = "PUBLISHDATE")
 	private Date publishdate;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_user", referencedColumnName = "id")
 	private User user;
 	
