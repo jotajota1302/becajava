@@ -18,5 +18,4 @@ public class FacenetApplication {
 		SpringApplication.run(FacenetApplication.class, args);
 	}
 
-
 }

@@ -1,15 +1,12 @@
 package es.eoi.facenet.repositories;
 
-import javax.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import es.eoi.facenet.entities.User;
+import es.eoi.facenet.entities.Message;
 
 
 @Repository
-@Transactional
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface MessageRepository extends JpaRepository<Message, Integer> {
 
 }

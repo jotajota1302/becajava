@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,8 @@ public class FacenetApplicationTests {
 	@Autowired
 	UserRepository repository;
 
-	@Test
-	public void contextLoads() {
-	}
-
-	@Test
+	
+	@Test	
 	public void CreateUser_UserCreated() {
 
 		// prepare
@@ -41,6 +39,24 @@ public class FacenetApplicationTests {
 
 		// assert
 		assertEquals(user.getName(), entity.getName());		
+
+	}
+	
+	@Test	
+	public void UpdateUser_UserUpdated() {
+
+		// prepare
+		User entity = new User();
+		entity.setName("Jose");
+		entity.setBirthDate(Calendar.getInstance().getTime());
+		repository.save(entity);
+		
+		// act
+		entity.setPassword("PASSWORD");
+		User user=repository.save(entity);
+
+		// assert
+		assertEquals("PASSWORD", user.getPassword());		
 
 	}
 	
@@ -74,6 +90,11 @@ public class FacenetApplicationTests {
 		assertEquals(user1.getName(), entity1.getName());		
 		assertEquals(user2.getName(), entity2.getName());		
 
+	}
+
+	@After
+	public void cleanDataBase(){		
+		repository.deleteAll();
 	}
 
 }
