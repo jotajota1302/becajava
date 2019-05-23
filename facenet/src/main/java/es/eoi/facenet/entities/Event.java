@@ -29,19 +29,25 @@ public class Event {
 	@Column(name = "eventDate")
 	private Date eventDate;
 
-	/*Mapeado
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = )*/
-	
+	@Column(name = "id_user")
+	private Integer id_user;
+	/*
+	 * Mapeado
+	 * 
+	 * @ManyToOne(fetch = FetchType.LAZY)
+	 * 
+	 * @JoinColumn(name = )
+	 */
 
-	public Event(Integer id, String name, String description, Date eventDate) {
+	public Event() {
+	}
+
+	public Event(Integer id, String name, String description, Date eventDate, Integer id_user) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.eventDate = eventDate;
-	}
-
-	public Event() {
+		this.id_user = id_user;
 	}
 
 	public Integer getId() {
@@ -75,4 +81,13 @@ public class Event {
 	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
 	}
+
+	public Integer getId_user() {
+		return id_user;
+	}
+
+	public void setId_user(Integer id_user) {
+		this.id_user = id_user;
+	}
+
 }
