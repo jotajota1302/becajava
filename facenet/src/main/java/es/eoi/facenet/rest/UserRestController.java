@@ -31,6 +31,11 @@ public class UserRestController {
     	return service.findAll();
     }
     
+    @GetMapping("/user/search/{name}")
+    public List<User> findByName(@PathVariable String name) {   
+    	return service.findAllByName(name);
+    }
+    
     @PostMapping("/user")
     public User updateUser(@RequestBody UserDto userDto) {     	
     	User user = new User();    	
