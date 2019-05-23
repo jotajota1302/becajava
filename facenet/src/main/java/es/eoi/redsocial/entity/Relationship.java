@@ -19,8 +19,12 @@ public class Relationship {
 	@Column(name = "estado")
 	private String estado;
 
+	@ManyToOne()
+	@JoinColumn(name = "idusuario1")
 	private User user1;
 
+	@ManyToOne()
+	@JoinColumn(name = "idusuario2")
 	private User user2;
 
 	public Relationship() {

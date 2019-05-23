@@ -19,8 +19,12 @@ public class Reaction {
 	@Column(name = "reactiontype")
 	private String reactionType;
 
+	@ManyToOne()
+	@JoinColumn(name = "idusuario")
 	private User user;
 
+	@ManyToOne()
+	@JoinColumn(name = "idmensajes")
 	private Message message;
 
 	public Reaction() {
