@@ -40,10 +40,10 @@ public class User {
 	@Column(name ="PASS")
 	private String pass;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user1")
 	private List<Relationship> relationships1;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user2")
 	private List<Relationship> relationships2;
 	
 	@OneToMany(mappedBy = "user")

@@ -34,7 +34,7 @@ public class Message {
 	@JoinColumn(name = "id_user", referencedColumnName = "id")
 	private User user;
 	
-	@OneToMany(mappedBy = "reaction")
+	@OneToMany(mappedBy = "message")
 	private List<Reaction> reactions;
 
 	public Message(String content, Date publishdate, User user, List<Reaction> reactions) {
