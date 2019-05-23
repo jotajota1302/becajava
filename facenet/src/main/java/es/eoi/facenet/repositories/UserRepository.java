@@ -8,7 +8,6 @@ import es.eoi.facenet.entities.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 	
-	
 }
 
 
