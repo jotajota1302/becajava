@@ -57,4 +57,101 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Event> events;
+
+	public User(int id, String name, String surname, Date birthdate, Date stardate, String user, String pass,
+			List<Relationship> relationships1, List<Relationship> relationships2, List<Reaction> reactions,
+			List<Assistance> assistances, List<Message> messages, List<Event> events) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.birthdate = birthdate;
+		this.stardate = stardate;
+		this.user = user;
+		this.pass = pass;
+		this.relationships1 = relationships1;
+		this.relationships2 = relationships2;
+		this.reactions = reactions;
+		this.assistances = assistances;
+		this.messages = messages;
+		this.events = events;
+	}
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSurname() {
+		return surname;
+	}
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	public Date getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+	public Date getStardate() {
+		return stardate;
+	}
+	public void setStardate(Date stardate) {
+		this.stardate = stardate;
+	}
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	public List<Relationship> getRelationships1() {
+		return relationships1;
+	}
+	public void setRelationships1(List<Relationship> relationships1) {
+		this.relationships1 = relationships1;
+	}
+	public List<Relationship> getRelationships2() {
+		return relationships2;
+	}
+	public void setRelationships2(List<Relationship> relationships2) {
+		this.relationships2 = relationships2;
+	}
+	public List<Reaction> getReactions() {
+		return reactions;
+	}
+	public void setReactions(List<Reaction> reactions) {
+		this.reactions = reactions;
+	}
+	public List<Assistance> getAssistances() {
+		return assistances;
+	}
+	public void setAssistances(List<Assistance> assistances) {
+		this.assistances = assistances;
+	}
+	public List<Message> getMessages() {
+		return messages;
+	}
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+	public List<Event> getEvents() {
+		return events;
+	}
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 }

@@ -27,4 +27,36 @@ public class Reaction {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_message", referencedColumnName = "id")
 	private Message message;
+
+	public Reaction(int id, String reactiontype, User user, Message message) {
+		this.id = id;
+		this.reactiontype = reactiontype;
+		this.user = user;
+		this.message = message;
+	}
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getReactiontype() {
+		return reactiontype;
+	}
+	public void setReactiontype(String reactiontype) {
+		this.reactiontype = reactiontype;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Message getMessage() {
+		return message;
+	}
+	public void setMessage(Message message) {
+		this.message = message;
+	}
 }

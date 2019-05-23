@@ -36,4 +36,44 @@ public class Message {
 	
 	@OneToMany(mappedBy = "reaction")
 	private List<Reaction> reactions;
+
+	public Message(int id, String content, Date publishdate, User user, List<Reaction> reactions) {
+		this.id = id;
+		this.content = content;
+		this.publishdate = publishdate;
+		this.user = user;
+		this.reactions = reactions;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getPublishdate() {
+		return publishdate;
+	}
+	public void setPublishdate(Date publishdate) {
+		this.publishdate = publishdate;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<Reaction> getReactions() {
+		return reactions;
+	}
+	public void setReactions(List<Reaction> reactions) {
+		this.reactions = reactions;
+	}
 }
