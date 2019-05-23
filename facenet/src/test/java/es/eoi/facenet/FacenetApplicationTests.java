@@ -3,6 +3,10 @@ package es.eoi.facenet;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.transaction.Transactional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +41,38 @@ public class FacenetApplicationTests {
 
 		// assert
 		assertEquals(user.getName(), entity.getName());		
+
+	}
+	
+	@Test
+	@Transactional
+	public void MakeRelationBetweenUsers_RelationCreated() {
+
+		// prepare
+		User entity1 = new User();
+		entity1.setName("Jose");
+		entity1.setBirthDate(Calendar.getInstance().getTime());
+		
+		User entity2 = new User();
+		entity2.setName("Pedro");
+		entity2.setBirthDate(Calendar.getInstance().getTime());
+		
+		Set<User> referencesTo= new HashSet<User>();
+		Set<User> referencesFrom= new HashSet<User>();
+		
+		referencesTo.add(entity2);
+		referencesFrom.add(entity1);
+		
+		entity1.setReferencesTo(referencesTo);
+		entity2.setReferencesFrom(referencesFrom);
+
+		// act
+		User user1 = repository.save(entity1);
+		User user2 = repository.save(entity2);
+		
+		// assert
+		assertEquals(user1.getName(), entity1.getName());		
+		assertEquals(user2.getName(), entity2.getName());		
 
 	}
 
