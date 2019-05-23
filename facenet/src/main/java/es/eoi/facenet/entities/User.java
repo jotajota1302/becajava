@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "USERS")
@@ -24,10 +26,12 @@ public class User {
 	@Column(name ="SURNAME")	
 	private String surname;
 	
-	@Column(name ="BIRTHDATE")
+	@Temporal(TemporalType.DATE)
+	@Column(name = "BIRTHDATE")
 	private Date birthdate;
 	
-	@Column(name ="STARTDATE")
+	@Temporal(TemporalType.DATE)
+	@Column(name = "STARDATE")
 	private Date stardate;
 	
 	@Column(name ="USER")
