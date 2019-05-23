@@ -1,4 +1,4 @@
-package es.eoi.redsocial.entity;
+package es.eoi.facenet.entities;
 
 public class Assistance {
 
