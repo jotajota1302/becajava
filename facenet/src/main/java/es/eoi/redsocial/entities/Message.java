@@ -29,14 +29,14 @@ public class Message {
 	@Column(name = "content")
 	private String content;
 
-	@Column(name = "publishDate")
+	@Column(name = "publishdate")
 	private Date publishDate;
 
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Reaction> reactionList;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user")
+	@JoinColumn(name = "iduser")
 	private User userObject;
 
 	public Message() {
