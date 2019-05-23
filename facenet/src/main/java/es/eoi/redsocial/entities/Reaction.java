@@ -26,11 +26,11 @@ public class Reaction {
 	private int reactionType;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_users")
 	private User userObject;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_messages")
 	private Message messageObject;
 
 	public Reaction() {

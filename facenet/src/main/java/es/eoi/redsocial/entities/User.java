@@ -31,7 +31,7 @@ public class User {
 	@Column(name = "surname")
 	private String surname;
 	
-	@Column(name = "birthDate")
+	@Column(name = "birthdate")
 	private Date birthDate;
 	
 	@Column(name = "startDate")
@@ -43,19 +43,19 @@ public class User {
 	@Column(name = "pass")
 	private String pass;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY)
 	List<Message> messageList;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY)
 	List<Reaction> reactionList;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	List<Relationsship> relationshipList;
+	@OneToMany(fetch = FetchType.LAZY)
+	List<Relationship> relationshipList;
 	
 	public User() {
 		
 	}
 	
 	public User(int id, String name, String surname, Date birthDate, Date startDate, String userName, String pass,
-			List<Message> messageList, List<Reaction> reactionList, List<User> userList) {
+			List<Message> messageList, List<Reaction> reactionList, List<Relationship> relationshipList) {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
@@ -65,6 +65,7 @@ public class User {
 		this.pass = pass;
 		this.messageList = messageList;
 		this.reactionList = reactionList;
-		this.userList = userList;
+		this.relationshipList = relationshipList;
 	}
+	
 }

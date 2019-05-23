@@ -28,9 +28,20 @@ public class Relationship {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_receive")
-	private User user;
+	private User receiveUser;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_send")
-	private User user;
+	private User sendUser;
+
+	public Relationship() {
+
+	}
+
+	public Relationship(int id, int state, User receiveUser, User sendUser) {
+		this.id = id;
+		this.state = state;
+		this.receiveUser = receiveUser;
+		this.sendUser = sendUser;
+	}
 }
