@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.eoi.redsocial.entity.TestEntity;
+import es.eoi.facenet.entities.TestEntity;
 import es.eoi.services.EntityServiceImpl;
  
 @RestController
