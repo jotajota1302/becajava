@@ -29,7 +29,6 @@ public class Relationship {
 
 	public Relationship() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Relationship(int id, String estado, User user1, User user2) {

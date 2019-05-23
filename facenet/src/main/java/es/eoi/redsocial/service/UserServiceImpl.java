@@ -1,4 +1,4 @@
-package es.eoi.services;
+package es.eoi.redsocial.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.eoi.redsocial.entity.User;
-import es.eoi.repositories.UserRepository;
+import es.eoi.redsocial.repository.UserRepository;
 
 public class UserServiceImpl implements UserService {
 	
@@ -56,9 +56,5 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-;
-	
 	
 }

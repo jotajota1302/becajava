@@ -1,25 +1,19 @@
 package es.eoi.redsocial.entity;
 
-<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-
-@Entity
-@Table(name = "usuarios")
-=======
-import lombok.*;
-
-@Getter
-@Setter
->>>>>>> c591f420cd75482fea13a70a8220207c205d29c5
 public class User {
 
 	@Id
