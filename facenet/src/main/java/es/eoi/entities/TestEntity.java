@@ -12,12 +12,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TestEntity {
-	
+	dasdasdas
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column
 	private String field;
-
 }
