@@ -3,11 +3,11 @@ package es.eoi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.eoi.redsocial.dto.EntityRepository;
-import es.eoi.redsocial.entity.TestEntity;
+import es.eoi.facenet.entities.TestEntity;
+import es.eoi.facenet.repositories.EntityRepository;
 
 @Service
-public class EntityService {
+public class EntityServiceImpl {
 	
 	@Autowired
 	EntityRepository repository;
