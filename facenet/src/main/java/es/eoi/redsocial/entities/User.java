@@ -49,6 +49,10 @@ public class User {
 	List<Reaction> reactionList;
 	@OneToMany(fetch = FetchType.LAZY)
 	List<Relationship> relationshipList;
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+	List<Event> eventList;
+	@OneToMany(fetch = FetchType.LAZY)
+	List<Assistance> assistanceList;
 	
 	public User() {
 		

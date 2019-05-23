@@ -34,11 +34,11 @@ public class Event {
 	@Column(name = "description")
 	private String description;
 
-	@Column(name = "eventDate")
+	@Column(name = "eventdate")
 	private Date eventDate;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user")
+	@JoinColumn(name = "iduser")
 	private User user;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
