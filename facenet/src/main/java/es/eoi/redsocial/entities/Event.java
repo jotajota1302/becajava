@@ -17,30 +17,44 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+
+@Entity
+@Table(name = "events")
 @Getter
 @Setter
-@Entity
-@Table(name="events")
 public class Event {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name="description")
+
+	@Column(name = "description")
 	private String description;
-	
-	@Column(name="eventDate")
+
+	@Column(name = "eventDate")
 	private Date eventDate;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_user")
+	@JoinColumn(name = "id_user")
 	private User user;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy= "event")
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
 	private List<Assistance> assistances;
-	
+
+	public Event() {
+
+	}
+
+	public Event(int id, String name, String description, Date eventDate, User user, List<Assistance> assistances) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.eventDate = eventDate;
+		this.user = user;
+		this.assistances = assistances;
+	}
+
 }
