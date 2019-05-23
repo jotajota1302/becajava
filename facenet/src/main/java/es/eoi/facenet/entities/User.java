@@ -2,22 +2,35 @@ package es.eoi.facenet.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Users")
 public class User {
 
+	@Id
+	@Column(name = "id")
 	private int id;
 	
+	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "surname")
 	private String surName;
 	
+	@Column(name = "birthdate")
 	private Date birthDate;
 	
+	@Column(name = "startdate")
 	private Date startDate;
 	
+	@Column(name = "username")
 	private String userName;
+	
+	
 	
 	public User() {
 		
