@@ -24,8 +24,11 @@ public class Event {
 	@Column(name = "descripcion")
 	private String descripcion;
 
+	@Column(name = "fechaevento")
 	private Date fechaEvento;
 
+	@ManyToOne()
+	@JoinColumn(name = "idusuario")
 	private User user;
 
 	public Event() {

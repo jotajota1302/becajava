@@ -1,16 +1,17 @@
 package es.eoi.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+<<<<<<< HEAD
 
 import es.eoi.redsocial.entity.TestEntity;
 import es.eoi.services.EntityServiceImpl;
+=======
+>>>>>>> bflorez
  
 @RestController
 public class EntityRestController {
  
+<<<<<<< HEAD
 	@Autowired
 	EntityServiceImpl service;
 	
@@ -19,3 +20,6 @@ public class EntityRestController {
     	return service.getEntityById(Integer.parseInt(id));
     }
 }
+=======
+}
+>>>>>>> bflorez

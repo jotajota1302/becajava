@@ -24,6 +24,8 @@ public class Message {
 	@Column(name="fechapublicacion")
 	private Date fechaPublicacion;
 	
+	@ManyToOne()
+	@JoinColumn(name = "idusuario")
 	private User user;
 
 	public Message() {

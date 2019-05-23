@@ -19,10 +19,12 @@ public class Assistance {
 	@Column(name = "estado")
 	private String state;
 
-	// TODO relacion
+	@ManyToOne()
+	@JoinColumn(name = "idevento")
 	private Event event;
 
-	// TODO relacion
+	@ManyToOne()
+	@JoinColumn(name = "idusuario")
 	private User user;
 
 	public Assistance() {
