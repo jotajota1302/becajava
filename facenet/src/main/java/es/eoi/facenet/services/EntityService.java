@@ -1,10 +1,10 @@
-package es.eoi.services;
+package es.eoi.facenet.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.eoi.entities.TestEntity;
-import es.eoi.repositories.EntityRepository;
+import es.eoi.facenet.entities.TestEntity;
+import es.eoi.facenet.repositories.EntityRepository;
 
 @Service
 public class EntityService {
