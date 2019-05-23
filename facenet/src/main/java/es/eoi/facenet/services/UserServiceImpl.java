@@ -3,22 +3,27 @@ package es.eoi.facenet.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.eoi.facenet.entities.Relationship;
 import es.eoi.facenet.entities.User;
+import es.eoi.facenet.repositories.RelationshipRepository;
 import es.eoi.facenet.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserRepository repository;
+	private UserRepository repositoryUser;
+	
+	@Autowired
+	private RelationshipRepository repositoryRelation;
 
 	@Override
 	public boolean deleteRelationship(int id) {
 
-		repository.deleteById(id);
-		User user = repository.findById(id).get();
+		repositoryRelation.deleteById(id);
+		Relationship relacion = repositoryRelation.findById(id).get();
 		
-		if(user!=null) {
+		if(relacion!=null) {
 			return false;
 		}else {
 			return true;
@@ -28,7 +33,16 @@ public class UserServiceImpl implements UserService {
 	
 	public boolean updateRelationship(int id) {
 		
-		repository.(id);
+		Relationship relacion = repositoryRelation.findById(id).get();
+		
+		relacion.setState("FRIEND");
+		
+		if(repositoryRelation.saveAndFlush(relacion)!=null) {
+			return true;
+		}else {
+			return false;
+		}
+		
 		
 		
 	}
