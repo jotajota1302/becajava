@@ -7,7 +7,7 @@ import es.eoi.facenet.entities.TestEntity;
 import es.eoi.facenet.repositories.EntityRepository;
 
 @Service
-public class EntityService {
+public class EntityServiceImpl {
 	
 	@Autowired
 	EntityRepository repository;

@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.eoi.redsocial.entity.TestEntity;
-import es.eoi.services.EntityService;
+import es.eoi.services.EntityServiceImpl;
  
 @RestController
 public class EntityRestController {
  
 	@Autowired
-	EntityService service;
+	EntityServiceImpl service;
 	
     @GetMapping("/entities/{id}")
     public TestEntity message(@PathVariable String id) {   
