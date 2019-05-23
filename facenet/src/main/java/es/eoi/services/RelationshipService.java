@@ -1,0 +1,5 @@
+package es.eoi.services;
+
+public interface RelationshipService {
+
+}
