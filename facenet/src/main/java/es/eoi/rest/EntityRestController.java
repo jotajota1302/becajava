@@ -3,7 +3,7 @@ package es.eoi.rest;
 import org.springframework.web.bind.annotation.RestController;
 <<<<<<< HEAD
 
-import es.eoi.redsocial.entity.TestEntity;
+import es.eoi.facenet.entities.TestEntity;
 import es.eoi.services.EntityServiceImpl;
 =======
 >>>>>>> bflorez
