@@ -1,5 +1,11 @@
 package es.eoi.facenet.services;
 
-public class UsuarioService implements IUsuarioService {
+import java.util.List;
 
+public class UsuarioService implements IUsuarioService {
+	
+	
+;
+	
+	
 }
