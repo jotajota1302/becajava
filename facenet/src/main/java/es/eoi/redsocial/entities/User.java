@@ -25,7 +25,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "nombre")
+	@Column(name = "name")
 	private String name;
 	
 	@Column(name = "surname")
@@ -37,8 +37,8 @@ public class User {
 	@Column(name = "startDate")
 	private Date startDate;
 	
-	@Column(name = "usuario")
-	private String user;
+	@Column(name = "user")
+	private String userName;
 	
 	@Column(name = "pass")
 	private String pass;
@@ -48,20 +48,20 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	List<Reaction> reactionList;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	List<User> userList;
+	List<Relationsship> relationshipList;
 	
 	public User() {
 		
 	}
 	
-	public User(int id, String name, String surname, Date birthDate, Date startDate, String user, String pass,
+	public User(int id, String name, String surname, Date birthDate, Date startDate, String userName, String pass,
 			List<Message> messageList, List<Reaction> reactionList, List<User> userList) {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.birthDate = birthDate;
 		this.startDate = startDate;
-		this.user = user;
+		this.userName = userName;
 		this.pass = pass;
 		this.messageList = messageList;
 		this.reactionList = reactionList;
