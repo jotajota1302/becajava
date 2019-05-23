@@ -3,7 +3,13 @@ package es.eoi.facenet.entities;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,19 +17,32 @@ import javax.persistence.Table;
 public class Event {
 
 	@Id
-	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "description")
 	private String description;
-	
+
 	@Column(name = "eventDate")
 	private Date eventDate;
+
+	/*Mapeado
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = )*/
 	
-	// Mapeado
+
+	public Event(Integer id, String name, String description, Date eventDate) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.eventDate = eventDate;
+	}
+
+	public Event() {
+	}
 
 	public Integer getId() {
 		return id;
@@ -55,15 +74,5 @@ public class Event {
 
 	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
-	}
-
-	public Event(Integer id, String name, String description, Date eventDate) {
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.eventDate = eventDate;
-	}
-
-	public Event() {
 	}
 }
