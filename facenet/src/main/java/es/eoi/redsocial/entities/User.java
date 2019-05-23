@@ -34,7 +34,7 @@ public class User {
 	@Column(name = "birthdate")
 	private Date birthDate;
 	
-	@Column(name = "startDate")
+	@Column(name = "startdate")
 	private Date startDate;
 	
 	@Column(name = "user")
@@ -53,6 +53,16 @@ public class User {
 	public User() {
 		
 	}
+	
+	public User(int id, String name, String surname, Date birthDate, Date startDate, String userName, String pass) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.birthDate = birthDate;
+		this.startDate = startDate;
+		this.userName = userName;
+		this.pass = pass;
+	}	
 	
 	public User(int id, String name, String surname, Date birthDate, Date startDate, String userName, String pass,
 			List<Message> messageList, List<Reaction> reactionList, List<Relationship> relationshipList) {

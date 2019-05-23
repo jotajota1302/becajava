@@ -25,28 +25,35 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "content")
 	private String content;
-	
+
 	@Column(name = "publishDate")
-	private Date publisDate;
-	
+	private Date publishDate;
+
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Reaction> reactionList;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_user")
 	private User userObject;
-	
+
 	public Message() {
-		
+
 	}
 
-	public Message(int id, String content, Date publisDate, List<Reaction> reactionList, User userObject) {
+	public Message(int id, String content, Date publishDate, User userObject) {
 		this.id = id;
 		this.content = content;
-		this.publisDate = publisDate;
+		this.publishDate = publishDate;
+		this.userObject = userObject;
+	}
+
+	public Message(int id, String content, Date publishDate, List<Reaction> reactionList, User userObject) {
+		this.id = id;
+		this.content = content;
+		this.publishDate = publishDate;
 		this.reactionList = reactionList;
 		this.userObject = userObject;
 	}
