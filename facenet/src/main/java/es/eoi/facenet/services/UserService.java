@@ -2,8 +2,6 @@ package es.eoi.facenet.services;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +23,8 @@ public class UserService {
 		return this.repository.save(user);
 	}
 	
-	public void deleteUser(User user) {
-		this.repository.delete(user);
+	public void deleteUser(Integer id) {
+		this.repository.deleteById(id);
 	}
 	
 	public List<User> findAll(){
