@@ -33,15 +33,14 @@ public class UserService {
 	}
 
 	public List<User> findAllByName(String name) {
-		
-		 ExampleMatcher ignoringExampleMatcher = ExampleMatcher.matchingAny()
-			      .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.startsWith());
-		
+
+		ExampleMatcher ignoringExampleMatcher = ExampleMatcher.matchingAny().withMatcher("name",
+				ExampleMatcher.GenericPropertyMatchers.startsWith());
+
 		User user = new User();
-		user.setName(name);		
+		user.setName(name);
 		Example<User> userExample = Example.of(user, ignoringExampleMatcher);
 
-		
 		return repository.findAll(userExample);
 	}
 
