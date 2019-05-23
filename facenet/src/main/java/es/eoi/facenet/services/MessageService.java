@@ -1,5 +1,5 @@
 package es.eoi.facenet.services;
 
-public interface IUsuarioService {
+public interface MessageService {
 
 }
