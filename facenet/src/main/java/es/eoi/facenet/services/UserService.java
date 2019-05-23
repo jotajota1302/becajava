@@ -1,5 +1,8 @@
 package es.eoi.facenet.services;
 
-public class UserService {
+public interface UserService  {
+
+	public boolean deleteRelationship(int id);
+	
 
 }

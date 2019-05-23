@@ -1,17 +1,18 @@
 package es.eoi.facenet.services;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.eoi.facenet.repositories.MessageRepository;
 
-
+import es.eoi.facenet.repositories.RelationshipRepository;
 
 @Service
-public class MessageServiceImpl implements MessageService {
+public class RelationshipServiceImpl implements RelationshipService {
 
 	@Autowired
-	private MessageRepository repository;
+	private RelationshipRepository repository;
 	
 
 }

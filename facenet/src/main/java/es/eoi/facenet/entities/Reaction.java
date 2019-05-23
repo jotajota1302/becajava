@@ -20,16 +20,15 @@ public class Reaction {
 	@Column(name = "REACTIONTYPE")
 	private String reactiontype;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_user", referencedColumnName = "id")
 	private User user;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_message", referencedColumnName = "id")
 	private Message message;
 
-	public Reaction(int id, String reactiontype, User user, Message message) {
-		this.id = id;
+	public Reaction( String reactiontype, User user, Message message) {
 		this.reactiontype = reactiontype;
 		this.user = user;
 		this.message = message;

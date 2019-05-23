@@ -30,15 +30,14 @@ public class Message {
 	@Column(name = "PUBLISHDATE")
 	private Date publishdate;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_user", referencedColumnName = "id")
 	private User user;
 	
-	@OneToMany(mappedBy = "reaction")
+	@OneToMany(mappedBy = "message")
 	private List<Reaction> reactions;
 
-	public Message(int id, String content, Date publishdate, User user, List<Reaction> reactions) {
-		this.id = id;
+	public Message(String content, Date publishdate, User user, List<Reaction> reactions) {
 		this.content = content;
 		this.publishdate = publishdate;
 		this.user = user;
