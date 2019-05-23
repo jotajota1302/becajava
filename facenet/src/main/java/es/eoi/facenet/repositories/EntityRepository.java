@@ -1,9 +1,9 @@
-package es.eoi.repositories;
+package es.eoi.facenet.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import es.eoi.entities.TestEntity;
+import es.eoi.facenet.entities.TestEntity;
 
 
 @Repository

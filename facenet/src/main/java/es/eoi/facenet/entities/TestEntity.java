@@ -1,4 +1,4 @@
-package es.eoi.entities;
+package es.eoi.facenet.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,10 +12,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TestEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column
 	private String field;
+
 }
