@@ -18,6 +18,6 @@ public class TestEntity {
 	private int id;
 	
 	@Column
-	private String field;
+	private String asd;
 
 }
