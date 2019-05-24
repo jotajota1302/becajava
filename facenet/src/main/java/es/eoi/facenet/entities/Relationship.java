@@ -2,7 +2,6 @@ package es.eoi.facenet.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +17,7 @@ public class Relationship {
 	private int id;
 
 	@Column(name = "STATE")
-	private String name;
+	private String state;
 
 	@ManyToOne
 	@JoinColumn(name = "id_user1", referencedColumnName = "id")
@@ -29,7 +28,7 @@ public class Relationship {
 	private User user2;
 
 	public Relationship(String name, User user1, User user2) {
-		this.name = name;
+		this.state = name;
 		this.user1 = user1;
 		this.user2 = user2;
 	}
@@ -43,11 +42,11 @@ public class Relationship {
 	}
 
 	public String getName() {
-		return name;
+		return state;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.state = name;
 	}
 
 	public User getUser1() {

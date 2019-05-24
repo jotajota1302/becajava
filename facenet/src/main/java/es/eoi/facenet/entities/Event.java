@@ -41,6 +41,14 @@ public class Event {
 	@JoinColumn(name="id_user",referencedColumnName = "id")
 	private User user;
 
+	public Event(String name, String description, Date eventDate, User user) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.eventDate = eventDate;
+		this.user = user;
+	}
+
 	public Event(String name, String description, Date eventDate, List<Assistance> assistances, User user) {
 		this.name = name;
 		this.description = description;
