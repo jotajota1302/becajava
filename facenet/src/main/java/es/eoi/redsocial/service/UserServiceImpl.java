@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import es.eoi.redsocial.entity.User;
 import es.eoi.redsocial.repository.UserRepository;
 
-
 @Service
 public class UserServiceImpl implements UserService {
 	
@@ -19,30 +18,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findAll() {
-		List<User> userList = new ArrayList<User>();
-		userList = userRepository.findAll();
-		return userList;
+		return userRepository.findAll();
 	}
 
 	@Override
 	public User findById(int id) {
-		User user = new User();
-		user = userRepository.findById(id).get();
-		
-		return user;
+		return userRepository.findById(id).get();
 	}
 
 	@Override
 	public User findByIdFullInfo(int id) {
-		User user = new User();
-		user = userRepository.findById(id).get();
-		return user;
+		return userRepository.findById(id).get();
 	}
 
 	@Override
 	public void createUser(String name, String surname, Date birthdate, String user, String pass) {
 		User userr = new User();
-		Date date = new Date();
 		userr.setNombre(name);
 		userr.setApellido(surname);
 		userr.setFechaNacimiento(birthdate);
@@ -50,8 +41,6 @@ public class UserServiceImpl implements UserService {
 		userr.setPass(pass);
 		userr.setFechaAlta(date);
 		userRepository.save(userr);
-		
-		
 	}
 
 	@Override
@@ -60,8 +49,6 @@ public class UserServiceImpl implements UserService {
 		user = userRepository.findById(id).get();
 		user.setApellido(surname);
 		userRepository.save(user);
-		
-		
 	}
 
 	@Override

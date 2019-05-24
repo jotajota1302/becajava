@@ -15,6 +15,7 @@ import lombok.Setter;
 public class Message {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
@@ -30,7 +31,6 @@ public class Message {
 
 	public Message() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Message(int id, String contenido, Date fechaPublicacion, User user) {

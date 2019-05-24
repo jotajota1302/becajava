@@ -15,6 +15,7 @@ import lombok.Setter;
 public class Event {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
@@ -84,7 +85,4 @@ public class Event {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-
 }

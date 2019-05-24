@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "es.eoi.repositories")
+@EnableJpaRepositories(basePackages = "es.eoi.redsocial.repository")
 @EntityScan( basePackages = {"es.eoi"} )
 @ComponentScan(basePackages = "es.eoi")
 @EnableAutoConfiguration
