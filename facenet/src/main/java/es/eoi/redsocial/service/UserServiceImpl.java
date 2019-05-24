@@ -22,12 +22,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findById(int id) {
-		return userRepository.findById(id).get();
+		return userRepository.findById(id);
 	}
 
 	@Override
 	public User findByIdFullInfo(int id) {
-		return userRepository.findById(id).get();
+		return userRepository.findById(id);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateSurnameById(int id, String surname) {
 		User user = new User();
-		user = userRepository.findById(id).get();
+		user = userRepository.findById(id);
 		user.setApellido(surname);
 		userRepository.save(user);
 	}
