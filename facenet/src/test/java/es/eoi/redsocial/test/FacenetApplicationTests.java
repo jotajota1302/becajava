@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import es.eoi.redsocial.entities.Assistance;
 import es.eoi.redsocial.entities.Event;
 import es.eoi.redsocial.entities.Message;
+import es.eoi.redsocial.entities.Reaction;
 import es.eoi.redsocial.entities.Relationship;
 import es.eoi.redsocial.entities.User;
 import es.eoi.redsocial.repositories.IAssistanceRepository;

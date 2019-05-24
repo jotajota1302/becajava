@@ -74,8 +74,6 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-<<<<<<< Upstream, based on branch 'grupo4' of https://github.com/jotajota1302/becajava.git
-=======
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -85,7 +83,6 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.4</version>
 		</dependency>
->>>>>>> 64c9bbd EventController
 	</dependencies>
 
 	<build>

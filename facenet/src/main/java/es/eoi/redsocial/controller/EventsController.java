@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,11 +28,16 @@ public class EventsController {
 	IEventService eventService;
 	
 	//findById
-	@RequestMapping(method = RequestMethod.GET, params= {"id"})
-	public Event findEventById(
-		@RequestParam(value= "id")int id) {
-			return eventService.findById(id);		
-		}
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public ResponseEntity<EventDto> findById(@PathVariable int id) {
+		ModelMapper model = new ModelMapper();
+		EventDto eventDto;
+		Event event = eventService.findById(id);
+		java.lang.reflect.Type targetType = new TypeToken<EventDto>() {
+		}.getType();
+		eventDto = model.map(event, targetType);
+		return new ResponseEntity<>(eventDto, HttpStatus.OK);
+	}
 	
 
     // findAll
