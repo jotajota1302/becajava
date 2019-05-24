@@ -6,10 +6,11 @@ import org.springframework.stereotype.Service;
 import es.eoi.facenet.repositories.ReactionRepository;
 
 @Service
-public class ReactionServiceImpl implements ReactionRepository {
+public class ReactionServiceImpl implements ReactionService {
 
 	@Autowired
 	ReactionRepository repository;
+	
 	
 	
 }

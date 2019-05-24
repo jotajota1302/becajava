@@ -1,6 +1,6 @@
 package es.eoi.facenet.entities;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -36,6 +36,9 @@ public class User {
 	@Column(name = "username")
 	private String userName;
 	
+	@Column(name = "pass")
+	private String pass;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user1")
 	private List<Relationship> relationship1;
 	
@@ -52,14 +55,15 @@ public class User {
 		
 	}
 
-	public User(int id, String name, String surName, Date birthDate, Date startDate, String userName) {
-		super();
+	public User(int id, String name, String surName, Date birthDate, Date startDate, String userName, String pass) {
+		
 		this.id = id;
 		this.name = name;
 		this.surName = surName;
 		this.birthDate = birthDate;
 		this.startDate = startDate;
 		this.userName = userName;
+		this.pass = pass;
 	}
 	
 
@@ -110,4 +114,14 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	
+	
 }

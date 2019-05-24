@@ -1,8 +1,14 @@
 package es.eoi.facenet.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import es.eoi.facenet.entities.Event;
+
 public interface EventService {
 
+	public Event findById(Integer id);
+
+	public Event createEvent(Event event);
+
+	public List<Event> findAll(); 
 }

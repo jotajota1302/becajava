@@ -1,5 +1,9 @@
 package es.eoi.facenet.repositories;
 
-public interface ReactionRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import es.eoi.facenet.entities.Reaction;
+
+public interface ReactionRepository extends JpaRepository<Reaction, Integer>{
 
 }
