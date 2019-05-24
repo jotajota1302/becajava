@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.eoi.facenet.dto.UserDto;
@@ -26,16 +27,6 @@ public class UserRestController {
     	return service.getUserById(Integer.parseInt(id));
     }
     
-    @GetMapping("/user/all")
-    public List<User> findAll() {   
-    	return service.findAll();
-    }
-    
-    @GetMapping("/user/search/{name}")
-    public List<User> findByName(@PathVariable String name) {   
-    	return service.findAllByName(name);
-    }
-    
     @PostMapping("/user")
     public User updateUser(@RequestBody UserDto userDto) {     	
     	User user = new User();    	
@@ -47,4 +38,18 @@ public class UserRestController {
     public void deleteUser(@PathVariable String id) {      	
     	 service.deleteUser(Integer.parseInt(id));
     }
+    
+    @GetMapping("/user/all")
+    public List<User> findAll() {   
+    	return service.findAll();
+    }
+    
+    @GetMapping("/user/search/{name}")
+    public List<User> findByName(@PathVariable String name) {   
+    	return service.findAllByName(name);
+    }
+    
+    
+    
+   
 }
