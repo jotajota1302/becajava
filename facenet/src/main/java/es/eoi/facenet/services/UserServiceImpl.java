@@ -19,32 +19,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean deleteRelationship(int id) {
 
-		repositoryRelation.deleteById(id);
-		Relationship relacion = repositoryRelation.findById(id).get();
-		
-		if(relacion!=null) {
-			return false;
-		}else {
-			return true;
-		}
+		return false;
+	}
 
-	}
-	
-	public boolean updateRelationship(int id) {
-		
-		Relationship relacion = repositoryRelation.findById(id).get();
-		
-		relacion.setState("FRIEND");
-		
-		if(repositoryRelation.saveAndFlush(relacion)!=null) {
-			return true;
-		}else {
-			return false;
-		}
-		
-		
-		
-	}
+
 	
 
 }
