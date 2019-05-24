@@ -34,4 +34,12 @@ public class ReactionServiceImpl implements ReactionService {
 		
 	}
 
+	@Override
+	public void createReaction(String reactionType, User us, Message mess) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 }

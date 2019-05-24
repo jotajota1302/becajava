@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUser(String name, String surname, Date birthdate, String user, String pass) {
 		User userr = new User();
+		Date date = new Date();
 		userr.setNombre(name);
 		userr.setApellido(surname);
 		userr.setFechaNacimiento(birthdate);
