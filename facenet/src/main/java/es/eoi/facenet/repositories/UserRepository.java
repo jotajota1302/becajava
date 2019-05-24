@@ -10,7 +10,7 @@ import es.eoi.facenet.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	@Query("Select u from User u where u.user=:usuario and u.pass=:password ")
+	@Query("Select u from User u where u.user=:usuario and u.pass=:password")
 	User login(@Param("usuario")String usuario,
 			@Param("password")String password);
 }
