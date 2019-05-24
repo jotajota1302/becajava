@@ -28,7 +28,7 @@ public class Reaction {
 	@JoinColumn(name = "id_message", referencedColumnName = "id")
 	private Message message;
 
-	public Reaction( String reactiontype, User user, Message message) {
+	public Reaction(String reactiontype, User user, Message message) {
 		this.reactiontype = reactiontype;
 		this.user = user;
 		this.message = message;
