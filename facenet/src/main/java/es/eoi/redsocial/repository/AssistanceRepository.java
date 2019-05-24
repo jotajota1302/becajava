@@ -1,9 +1,8 @@
 package es.eoi.redsocial.repository;
-//package es.eoi.repositories;
-//
-//import org.springframework.data.jpa.repository.JpaRepository;
-//
-//
-//public interface AssistanceRepository extends JpaRepository<String, Integer>{
-//
-//}
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import es.eoi.redsocial.entity.Assistance;
+
+public interface AssistanceRepository extends JpaRepository<Assistance, Integer>{
+
+}
