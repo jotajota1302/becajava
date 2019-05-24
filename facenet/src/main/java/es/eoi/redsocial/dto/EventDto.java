@@ -16,6 +16,22 @@ public class EventDto {
 	private String name;
 	private String description;
 	private Date eventDate;
-	private User user;
-	private List<Assistance> assistance;
+	private UserDto user;
+	
+	
+	public EventDto() {
+
+	}
+
+
+	public EventDto(int id, String name, String description, Date eventDate, UserDto user) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.eventDate = eventDate;
+		this.user = user;
+
+	}
+	
+	
 }
