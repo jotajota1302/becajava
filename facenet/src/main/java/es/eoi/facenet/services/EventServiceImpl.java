@@ -8,17 +8,32 @@ import org.springframework.stereotype.Service;
 
 import es.eoi.facenet.entities.Event;
 import es.eoi.facenet.entities.User;
+<<<<<<< HEAD
+=======
+import es.eoi.facenet.repositories.AssistanceRepository;
+>>>>>>> branch 'grupo1' of https://github.com/jotajota1302/becajava.git
 import es.eoi.facenet.repositories.EventRepository;
 
 @Service
 public class EventServiceImpl implements EventService {
 
 	@Autowired
+<<<<<<< HEAD
 	private EventRepository repository;
 	
 	@Override
+=======
+	private EventRepository repositoryEvent;
+
+
+>>>>>>> branch 'grupo1' of https://github.com/jotajota1302/becajava.git
 	public List<Event> findAll() {
+<<<<<<< HEAD
 		return repository.findAll();
+=======
+		return repositoryEvent.findAll();
+	
+>>>>>>> branch 'grupo1' of https://github.com/jotajota1302/becajava.git
 	}
 	
 	@Override

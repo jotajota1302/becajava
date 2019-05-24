@@ -10,5 +10,5 @@ import es.eoi.facenet.services.UserService;
 @RequestMapping(value = "/users")
 public class UsersController {
 	@Autowired
-	private UserService service;
+	private UserService serviceUser;
 }

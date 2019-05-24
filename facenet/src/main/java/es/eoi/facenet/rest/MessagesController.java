@@ -10,5 +10,5 @@ import es.eoi.facenet.services.MessageService;
 @RequestMapping(value = "")
 public class MessagesController {
 	@Autowired
-	private MessageService service;
+	private MessageService serviceMessage;
 }
