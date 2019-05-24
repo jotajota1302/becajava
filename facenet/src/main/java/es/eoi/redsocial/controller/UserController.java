@@ -72,40 +72,19 @@ public class UserController {
 		return u;
 	}
 	// Update User
-//	@RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
-//	public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody User user,
-//			@PathVariable String name,@PathVariable String surname,@PathVariable Date birthDate,
-//			@PathVariable Date startDate, @PathVariable String userName, @PathVariable String password) {
-//		User currentUser = userService.findById(id);
-//		if (currentUser == null) {
-//			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-//		}
-//		else {
-//			currentUser.setName(name);
-//			currentUser.setSurname(surname);
-//			currentUser.setBirthDate(birthDate);
-//			currentUser.setStartDate(startDate);
-//			currentUser.setUserName(userName);
-//			currentUser.setPass(password);
-//			
-//			userService.updateUser(currentUser.getId(),currentUser.getName(),currentUser.getSurname(),currentUser.getBirthDate(),
-//					currentUser.getStartDate(),currentUser.getUserName(), currentUser.getPass());
-//			return new ResponseEntity<User> (currentUser, HttpStatus.OK);
-//		}
-//		
-//	}
 	@RequestMapping(method = RequestMethod.PATCH, value = "/{id}")
-	private Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
-	    return repository.findById(id)
-	      .map(employee -> {
-	        employee.setName(newEmployee.getName());
-	        employee.setRole(newEmployee.getRole());
-	        return repository.save(employee);
-	      })
-	      .orElseGet(() -> {
-	        newEmployee.setId(id);
-	        return repository.save(newEmployee);
-	      });
-	  }
+	public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody UserDto user) {
+		User currentUser = userService.findById(id);
+		if (currentUser == null) {
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		}
+		else {
+			currentUser.setSurname(user.getSurname());
+			
+			userService.updateUserById(currentUser.getId(),currentUser.getSurname());
+			return new ResponseEntity<User> (currentUser, HttpStatus.OK);
+		}
+		
+	}
 
 }

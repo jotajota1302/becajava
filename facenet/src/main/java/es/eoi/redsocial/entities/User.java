@@ -43,20 +43,17 @@ public class User {
 	@Column(name = "pass")
 	private String pass;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "userObject")
 	List<Message> messageList;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "userObject")
 	List<Reaction> reactionList;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "sendUser")
 	List<Relationship> relationshipList;
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "userObject")
 	List<Event> eventList;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "userObject")
 	List<Assistance> assistanceList;
 	
-	public User(User user) {
-		
-	}
 	public User() {
 		
 	}

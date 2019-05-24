@@ -38,7 +38,7 @@ public class MessageServiceImpl implements IMessageService {
 	}
 
 	@Override
-	public Message save(int id, String content, Date publishDate, User userObject) {
+	public Message save(int id, String content,Date publishDate, User userObject) {
 		Message m = new Message(id,content,publishDate, userObject);
 		return messageRepo.save(m);
 	}

@@ -30,9 +30,9 @@ public class Message {
 	private String content;
 	
 	@Column(name = "publishdate")
-	private Date publisDate;
+	private Date publishDate;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "messageObject")
 	private List<Reaction> reactionList;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -42,12 +42,21 @@ public class Message {
 	public Message() {
 		
 	}
-
+	
+	
 	public Message(int id, String content, Date publisDate, List<Reaction> reactionList, User userObject) {
 		this.id = id;
 		this.content = content;
-		this.publisDate = publisDate;
+		this.publishDate = publisDate;
 		this.reactionList = reactionList;
+		this.userObject = userObject;
+	}
+
+
+	public Message(int id, String content, Date publisDate, User userObject) {
+		this.id = id;
+		this.content = content;
+		this.publishDate = publisDate;
 		this.userObject = userObject;
 	}
 }

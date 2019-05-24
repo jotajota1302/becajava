@@ -51,7 +51,7 @@ public class FacenetApplicationTests {
 	}
 
 	@Test
-	public void CreateMessage_MessageCreated() {
+	public void CreateMessage_MessageCreated1() {
 		// Prepare
 		User user = repository.findById(1).get();
 		Message m = new Message();
@@ -73,30 +73,16 @@ public class FacenetApplicationTests {
 		event.setName("Fiesta");
 		event.setDescription("jkhkgyt");
 		event.setEventDate(Calendar.getInstance().getTime());
-		event.setUser(repository.findById(1).get());
+		event.setUserObject(repository.findById(1).get());
 
 		eventRepository.save(event);
 
 	}
-	@Test
-	public void CreateMessage_MessageCreated() {
-		// Prepare
-		User user = repository.findById(1).get();
-		Message m = new Message();
-		m.setContent("Hola esto es un mensaje");
-		m.setPublishDate(Calendar.getInstance().getTime());
-		m.setUserObject(user);
-
-		// act
-		Message message = mrepository.save(m);
-
-		// assert
-		assertEquals(message.getContent(), m.getContent());
-	}
+	
 	@Test
 	public void createAssistance_assistanceCreated() {
 		Assistance assistance = new Assistance();
-		assistance.setUser(repository.findById(1).get());
+		assistance.setUserObject(repository.findById(1).get());
 		assistance.setEvent(eventRepository.findById(7).get());
 		assistance.setState(1);
 
@@ -113,19 +99,19 @@ public class FacenetApplicationTests {
 		relationshipRepository.save(relationship);
 	}
 
-	@Test
-	public void CreateReaction_ReactionCreated() {
-		// Prepare
-		User user = repository.findById(1).get();
-		Message m = mrepository.findById(1).get();
-		Reaction r = new Reaction();
-		r.setReactionType(1);
-		r.setMessageObject(m);
-		r.setUserObject(user);
-		// act
-		Reaction reaction = rrepository.save(r);
-
-		// assert
-		assertEquals(reaction.getReactionType(), r.getReactionType());
-	}
+//	@Test
+//	public void CreateReaction_ReactionCreated() {
+//		// Prepare
+//		User user = repository.findById(1).get();
+//		Message m = mrepository.findById(1).get();
+//		Reaction r = new Reaction();
+//		r.setReactionType(1);
+//		r.setMessageObject(m);
+//		r.setUserObject(user);
+//		// act
+//		Reaction reaction = rrepository.save(r);
+//
+//		// assert
+//		assertEquals(reaction.getReactionType(), r.getReactionType());
+//	}
 }

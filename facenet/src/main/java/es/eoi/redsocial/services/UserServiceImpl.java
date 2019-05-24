@@ -44,11 +44,11 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User updateUser(int id, String name, String surname, Date birthDate, Date startDate, String userName,
-			String pass) {
-		User u = new User(id, name,surname, birthDate, startDate, userName,
-				pass);
-		return userRepo.save(u); 
+	public void updateUserById(int id, String surname) {
+        User user = new User();
+        user = userRepo.findById(id).get();
+        user.setSurname(surname);
+        userRepo.save(user);
 	}
 
 }

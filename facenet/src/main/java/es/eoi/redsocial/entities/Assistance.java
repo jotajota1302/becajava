@@ -29,7 +29,7 @@ public class Assistance {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "iduser")
-	private User user;
+	private User userObject;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idevent")
@@ -41,7 +41,7 @@ public class Assistance {
 
 	public Assistance(User user, Event event,int state) {
 		this.state = state;
-		this.user = user;
+		this.userObject = user;
 		this.event = event;
 	}
 

@@ -39,7 +39,7 @@ public class Event {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "iduser")
-	private User user;
+	private User userObject;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
 	private List<Assistance> assistances;
@@ -52,8 +52,7 @@ public class Event {
 		this.name = name;
 		this.description = description;
 		this.eventDate = eventDate;
-		this.user = user;
-		this.assistances = assistances;
+		this.userObject = user;
 	}
 
 }
