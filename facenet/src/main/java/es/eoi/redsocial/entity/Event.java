@@ -30,7 +30,7 @@ public class Event {
 	@ManyToOne()
 	@JoinColumn(name = "idusuario")
 	private User user;
-
+	
 	public Event() {
 		super();
 		// TODO Auto-generated constructor stub

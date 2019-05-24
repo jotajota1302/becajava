@@ -1,4 +1,4 @@
-package es.eoi.services;
+package es.eoi.redsocial.service;
 
 import org.springframework.stereotype.Service;
 

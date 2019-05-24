@@ -1,3 +1,4 @@
+package es.eoi.redsocial.repository;
 //package es.eoi.repositories;
 //
 //import org.springframework.data.jpa.repository.JpaRepository;
