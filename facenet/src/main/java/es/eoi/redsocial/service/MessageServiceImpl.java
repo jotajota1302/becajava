@@ -2,32 +2,37 @@ package es.eoi.redsocial.service;
 
 import java.util.List;
 
-import es.eoi.redsocial.entity.Message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import es.eoi.redsocial.entity.Message;
+import es.eoi.redsocial.repository.MessageRepository;
+
+@Service
 public class MessageServiceImpl implements MessageService{
 
+	@Autowired
+	MessageRepository messageRepository;
+	
 	@Override
 	public Message findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return messageRepository.getOne(id);
 	}
 
 	@Override
 	public List<Message> findByUserId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO query personalizada
+		return null; 
 	}
 
 	@Override
-	public Message createPost(String content) {
-		// TODO Auto-generated method stub
-		return null;
+	public Message createPost(Message message) {
+		return messageRepository.save(message);
 	}
 
 	@Override
 	public void deletePost(int id) {
-		// TODO Auto-generated method stub
-		
+		messageRepository.deleteById(id);
 	}
 
 }
