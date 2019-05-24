@@ -7,6 +7,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,4 +74,13 @@ public class UsersController {
 		 return false;
 	}
 	
+	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
+	public User login(
+			@RequestParam(value = "username") String userName,
+			@RequestParam(value = "pass") String pass
+			@Query(value = "SELECT * FROM USERS WHERE USERNAME LIKE = ? AND PASS = ?")
+			
+			
+			) {
+	return null;
 }

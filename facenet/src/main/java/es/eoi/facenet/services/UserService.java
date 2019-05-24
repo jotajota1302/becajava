@@ -14,5 +14,4 @@ public interface UserService {
 	public User findById(int id);
 	public User save(User user);
 	public boolean existsById(int id);
-	
 }
