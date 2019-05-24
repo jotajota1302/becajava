@@ -61,6 +61,110 @@ public class User {
 	
 	//Constructores
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public List<Message> getMessage() {
+		return message;
+	}
+
+	public void setMessage(List<Message> message) {
+		this.message = message;
+	}
+
+	public List<Reaction> getReaction() {
+		return reaction;
+	}
+
+	public void setReaction(List<Reaction> reaction) {
+		this.reaction = reaction;
+	}
+
+	public List<Relationship> getRelationship1() {
+		return relationship1;
+	}
+
+	public void setRelationship1(List<Relationship> relationship1) {
+		this.relationship1 = relationship1;
+	}
+
+	public List<Relationship> getRelationship2() {
+		return relationship2;
+	}
+
+	public void setRelationship2(List<Relationship> relationship2) {
+		this.relationship2 = relationship2;
+	}
+
+	public List<Event> getEvent() {
+		return event;
+	}
+
+	public void setEvent(List<Event> event) {
+		this.event = event;
+	}
+
+	public List<Assistance> getAssistance() {
+		return assistance;
+	}
+
+	public void setAssistance(List<Assistance> assistance) {
+		this.assistance = assistance;
+	}
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
