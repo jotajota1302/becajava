@@ -23,7 +23,6 @@ public class ReactionServiceImpl implements ReactionService {
 	@Override
 	public void createReactionByUser(int idUsuario, String typeReation) {
 		// TODO query personalizada
-		
 	}
 
 }

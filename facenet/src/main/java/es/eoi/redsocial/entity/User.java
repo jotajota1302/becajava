@@ -4,16 +4,20 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
+@Table(name = "usuarios")
 public class User {
 
 	@Id
@@ -38,8 +42,8 @@ public class User {
 
 	@Column(name = "pass")
 	private String pass;
-	
-	//Relacion tablas
+
+	// Relacion tablas
 
 	@OneToMany(mappedBy = "user")
 	private List<Message> message;
@@ -52,14 +56,14 @@ public class User {
 
 	@OneToMany(mappedBy = "user2")
 	private List<Relationship> relationship2;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Event> event;
 
 	@OneToMany(mappedBy = "user")
 	private List<Assistance> assistance;
-	
-	//Constructores
+
+	// Constructores
 
 	public int getId() {
 		return id;

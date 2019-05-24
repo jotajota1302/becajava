@@ -1,14 +1,15 @@
 package es.eoi.redsocial.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.eoi.redsocial.entity.User;
 import es.eoi.redsocial.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -16,24 +17,17 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findAll() {
-		List<User> userList = new ArrayList<User>();
-		userList = userRepository.findAll();
-		return userList;
+		return userRepository.findAll();
 	}
 
 	@Override
 	public User findById(int id) {
-		User user = new User();
-		user = userRepository.findById(id).get();
-		
-		return user;
+		return userRepository.findById(id).get();
 	}
 
 	@Override
 	public User findByIdFullInfo(int id) {
-		User user = new User();
-		user = userRepository.findById(id).get();
-		return user;
+		return userRepository.findById(id).get();
 	}
 
 	@Override
@@ -46,8 +40,6 @@ public class UserServiceImpl implements UserService {
 		userr.setPass(pass);
 		//Aqui iria la fecha de alta
 		userRepository.save(userr);
-		
-		
 	}
 
 	@Override
@@ -56,8 +48,6 @@ public class UserServiceImpl implements UserService {
 		user = userRepository.findById(id).get();
 		user.setApellido(surname);
 		userRepository.save(user);
-		
-		
 	}
 
 	@Override

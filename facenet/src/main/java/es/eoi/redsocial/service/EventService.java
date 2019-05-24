@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import es.eoi.redsocial.entity.Event;
 
 public interface EventService  {
-
 	
 		public List<Event> findAll();
 		public Event findById(int id);
