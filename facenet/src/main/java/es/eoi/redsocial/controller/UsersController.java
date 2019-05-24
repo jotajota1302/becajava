@@ -25,6 +25,11 @@ public class UsersController {
 		return service.findById(Integer.parseInt(id));
 	}
 	
+	@GetMapping("/user/{id}")
+	public User findByIdFullInfo(@PathVariable String id) {
+		return service.findByIdFullInfo(Integer.parseInt(id));
+	}
+	
 	@GetMapping("/user/all")
 	public List<User> findAll() {
 		return service.findAll();
@@ -36,6 +41,8 @@ public class UsersController {
 		BeanUtils.copyProperties(userDto, user);
 		service.updateSurnameById(user.getId(), user.getApellido());
 	}
+	
+	
 	
 
 //	@DeleteMapping("/user/{id}")
