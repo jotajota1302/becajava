@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import es.eoi.facenet.services.EventService;
 
 @RestController
-@RequestMapping(value = "")
+@RequestMapping(value = "/events")
 public class EventsController {
 	@Autowired
 	private EventService service;
+	
+	@RequestMapping(method = RequestMethod.GET)
+	//public List<Event> event()
 }
