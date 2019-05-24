@@ -2,8 +2,11 @@ package es.eoi.redsocial.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import es.eoi.redsocial.entity.Message;
 
+@Service
 public class MessageServiceImpl implements MessageService{
 
 	@Override

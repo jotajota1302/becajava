@@ -5,10 +5,13 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.eoi.redsocial.entity.User;
 import es.eoi.redsocial.repository.UserRepository;
 
+
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -39,12 +42,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUser(String name, String surname, Date birthdate, String user, String pass) {
 		User userr = new User();
+		Date date = new Date();
 		userr.setNombre(name);
 		userr.setApellido(surname);
 		userr.setFechaNacimiento(birthdate);
 		userr.setUsuario(user);
 		userr.setPass(pass);
-		//Aqui iria la fecha de alta
+		userr.setFechaAlta(date);
 		userRepository.save(userr);
 		
 		

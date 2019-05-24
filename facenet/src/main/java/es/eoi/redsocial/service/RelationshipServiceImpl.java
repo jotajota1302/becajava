@@ -1,12 +1,15 @@
 package es.eoi.redsocial.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.eoi.redsocial.entity.Relationship;
 import es.eoi.redsocial.entity.User;
 import es.eoi.redsocial.repository.RelationshipRepository;
 import es.eoi.redsocial.repository.UserRepository;
 
+
+@Service
 public class RelationshipServiceImpl implements RelationshipService {
 	
 	@Autowired

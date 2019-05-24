@@ -39,4 +39,37 @@ public class Reaction {
 		this.user = user;
 		this.message = message;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getReactionType() {
+		return reactionType;
+	}
+
+	public void setReactionType(String reactionType) {
+		this.reactionType = reactionType;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
+	
 }
