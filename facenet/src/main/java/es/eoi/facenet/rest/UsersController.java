@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import es.eoi.facenet.services.UserService;
 
 @RestController
-@RequestMapping(value = "")
+@RequestMapping(value = "/users")
 public class UsersController {
 	@Autowired
 	private UserService service;
