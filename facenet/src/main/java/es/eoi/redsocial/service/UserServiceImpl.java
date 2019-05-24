@@ -1,6 +1,5 @@
 package es.eoi.redsocial.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,6 +38,7 @@ public class UserServiceImpl implements UserService {
 		userr.setFechaNacimiento(birthdate);
 		userr.setUsuario(user);
 		userr.setPass(pass);
+		Date date = null;
 		userr.setFechaAlta(date);
 		userRepository.save(userr);
 	}

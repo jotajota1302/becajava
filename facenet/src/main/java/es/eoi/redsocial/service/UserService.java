@@ -6,7 +6,6 @@ import java.util.List;
 import es.eoi.redsocial.entity.User;
 
 public interface UserService {
-
 	
 	public List<User> findAll();
 	public User findById(int id);

@@ -1,5 +1,7 @@
 package es.eoi.redsocial.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +18,20 @@ public class ReactionServiceImpl implements ReactionService {
 	ReactionRepository reationRepository;
 	
 	@Override
+	public void createReactionByUser(int idUsuario, String typeReation) {
+		// TODO query personalizada
+	}
+
+	@Override
 	public List<Reaction> findAllReactionById(int id) {
-		//TODO query personalizada
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void createReactionByUser(int idUsuario, String typeReation) {
-		// TODO query personalizada
+	public void createReaction(String reactionType, User us, Message mess) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
