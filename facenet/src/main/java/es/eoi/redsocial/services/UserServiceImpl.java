@@ -43,4 +43,12 @@ public class UserServiceImpl implements IUserService {
 		return userRepo.save(u);
 	}
 
+	@Override
+	public User updateUser(int id, String name, String surname, Date birthDate, Date startDate, String userName,
+			String pass) {
+		User u = new User(id, name,surname, birthDate, startDate, userName,
+				pass);
+		return userRepo.save(u); 
+	}
+
 }

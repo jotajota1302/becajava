@@ -15,6 +15,7 @@ import es.eoi.redsocial.entities.User;
 import es.eoi.redsocial.repositories.IAssistanceRepository;
 import es.eoi.redsocial.repositories.IEventRepository;
 import es.eoi.redsocial.repositories.IMessageRepository;
+import es.eoi.redsocial.repositories.IReactionRepository;
 import es.eoi.redsocial.repositories.IUserRepository;
 import es.eoi.redsocial.repositories.IRelationshipRepository;
 
@@ -32,7 +33,8 @@ public class FacenetApplicationTests {
 	IAssistanceRepository assistanceRepository;
 	@Autowired
 	IRelationshipRepository relationshipRepository;
-
+	@Autowired
+	IReactionRepository rrepository;
 	@Test
 	public void CreateUser_UserCreated() {
 
@@ -48,16 +50,21 @@ public class FacenetApplicationTests {
 
 	}
 
-	/*
-	 * @Test public void CreateMessage_MessageCreated() { // Prepare User user =
-	 * repository.findById(1).get(); Message m = new Message();
-	 * m.setContent("Hola esto es un mensaje");
-	 * m.setPublishDate(Calendar.getInstance().getTime()); m.setUserObject(user);
-	 */
+	@Test
+	public void CreateMessage_MessageCreated() {
+		// Prepare
+		User user = repository.findById(1).get();
+		Message m = new Message();
+		m.setContent("Hola esto es un mensaje");
+		m.setPublishDate(Calendar.getInstance().getTime());
+		m.setUserObject(user);
 
-	// act Message message = mrepository.save(m);
+		// act
+		Message message = mrepository.save(m);
 
-	// assert assertEquals(message.getContent(), m.getContent()); }
+		// assert
+		assertEquals(message.getContent(), m.getContent());
+	}
 
 	@Test
 	public void createEvent_EventCreated() {
@@ -71,7 +78,21 @@ public class FacenetApplicationTests {
 		eventRepository.save(event);
 
 	}
+	@Test
+	public void CreateMessage_MessageCreated() {
+		// Prepare
+		User user = repository.findById(1).get();
+		Message m = new Message();
+		m.setContent("Hola esto es un mensaje");
+		m.setPublishDate(Calendar.getInstance().getTime());
+		m.setUserObject(user);
 
+		// act
+		Message message = mrepository.save(m);
+
+		// assert
+		assertEquals(message.getContent(), m.getContent());
+	}
 	@Test
 	public void createAssistance_assistanceCreated() {
 		Assistance assistance = new Assistance();
@@ -92,4 +113,19 @@ public class FacenetApplicationTests {
 		relationshipRepository.save(relationship);
 	}
 
+	@Test
+	public void CreateReaction_ReactionCreated() {
+		// Prepare
+		User user = repository.findById(1).get();
+		Message m = mrepository.findById(1).get();
+		Reaction r = new Reaction();
+		r.setReactionType(1);
+		r.setMessageObject(m);
+		r.setUserObject(user);
+		// act
+		Reaction reaction = rrepository.save(r);
+
+		// assert
+		assertEquals(reaction.getReactionType(), r.getReactionType());
+	}
 }

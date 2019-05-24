@@ -54,10 +54,12 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY)
 	List<Assistance> assistanceList;
 	
+	public User(User user) {
+		
+	}
 	public User() {
 		
 	}
-	
 	public User(int id, String name, String surname, Date birthDate, Date startDate, String userName, String pass) {
 		this.id = id;
 		this.name = name;

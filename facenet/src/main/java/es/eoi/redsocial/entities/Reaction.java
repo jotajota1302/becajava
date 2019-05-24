@@ -22,7 +22,7 @@ public class Reaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "reactionType")
+	@Column(name = "reactiontype")
 	private int reactionType;
 
 	@ManyToOne(fetch = FetchType.LAZY)
