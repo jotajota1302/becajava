@@ -1,5 +1,6 @@
 package es.eoi.facenet.rest;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.eoi.facenet.entities.Assist;
 import es.eoi.facenet.entities.Event;
+import es.eoi.facenet.entities.User;
 import es.eoi.facenet.services.EventService;
 
 @Configuration
@@ -68,11 +70,33 @@ public class EventsController {
 		return false;
 	}
 	
-	/*@RequestMapping(method = RequestMethod.GET, value = "events/{id}/yesAssistance", params = {"id_user"})
-	public List<Event> findYesAssistance(@PathParam(value = "id_user") int id_user){
+	@RequestMapping(method = RequestMethod.GET, value = "events/{id}/yesAssistance", params = {"id_user"})
+	public List<Assist> findYesAssistance(@PathParam(value = "id_user") int id_user){
+		List<Integer> yesAssistants = new ArrayList<Integer>();
+		
 		if(yesAssistance(id_user)) {
-			service.findAll();
+			yesAssistants.add(id_user);
 		}
-		return service.findAll();
-	}*/
+		return findYesAssistance(id_user);
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "events/{id}/notAssistance", params = {"id_user"})
+	 public List<Assist> findNotAssistance(@PathParam(value = "id_user") int id_user){
+		List<Integer> notAssistants = new ArrayList<Integer>();
+		
+	 if(notAssistance(id_user)){
+		 notAssistants.add(id_user);
+	 	}
+	 	return findNotAssistance(id_user);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "events/user/{id}/Assistence", params = {"id_user"})
+	public List<User> findAssistUser(@PathParam(value = "id_user") int id){
+		List<Integer> listEventsUser = new ArrayList<Integer>();
+		
+		return null;
+	}
+	
+	// Faltan los dos últimos métodos.
+	
 }
