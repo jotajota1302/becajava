@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import es.eoi.redsocial.entity.Event;
+import es.eoi.redsocial.entity.User;
 import es.eoi.redsocial.repository.EventRepository;
 
 @Service
@@ -38,15 +39,19 @@ public class EventServiceImpl implements EventService{
 		
 	}
 
+	
+
+	
+
 	@Override
-	public void yesAssistanceEvent(int idUser, int idEvent) {
-		
+	public void yesAssistanceEvent(User us, int idEvent) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void noAssistanceEvent(int idUser, int idEvent) {
-		
+	public void noAssistanceEvent(User us, int idEvent) {
+		// TODO Auto-generated method stub
 		
 	}
 
