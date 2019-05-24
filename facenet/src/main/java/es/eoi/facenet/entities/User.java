@@ -57,7 +57,18 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Event> events;
+	
+	
 
+	public User(String name, String surname, Date birthdate, Date stardate, String user, String pass) {
+		this.name = name;
+		this.surname = surname;
+		this.birthdate = birthdate;
+		this.stardate = stardate;
+		this.user = user;
+		this.pass = pass;
+	}
+	
 	public User(String name, String surname, Date birthdate, Date stardate, String user, String pass,
 			List<Relationship> relationships1, List<Relationship> relationships2, List<Reaction> reactions,
 			List<Assistance> assistances, List<Message> messages, List<Event> events) {
