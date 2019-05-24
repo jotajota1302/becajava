@@ -10,7 +10,7 @@ import es.eoi.facenet.services.EventService;
 @RequestMapping(value = "/events")
 public class EventsController {
 	@Autowired
-	private EventService service;
+	private EventService serviceEvent;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	//public List<Event> event()
