@@ -28,12 +28,9 @@ public class Event {
 	@Column(name = "eventDate")
 	private Date eventDate;
 
-	@Column(name = "id_user")
-	private Integer id_user;
-	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
 	private List<Assist> assists;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_user")
 	private User user;
@@ -41,12 +38,12 @@ public class Event {
 	public Event() {
 	}
 
-	public Event(Integer id, String name, String description, Date eventDate, Integer id_user) {
+	public Event(Integer id, String name, String description, Date eventDate) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.eventDate = eventDate;
-		this.id_user = id_user;
+
 	}
 
 	public Integer getId() {
@@ -79,14 +76,6 @@ public class Event {
 
 	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
-	}
-
-	public Integer getId_user() {
-		return id_user;
-	}
-
-	public void setId_user(Integer id_user) {
-		this.id_user = id_user;
 	}
 
 }

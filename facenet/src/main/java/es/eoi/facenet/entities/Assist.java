@@ -18,27 +18,19 @@ public class Assist {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id_assist;
 
-	@Column(name = "id_user")
-	private Integer id_user;
+	@Column(name = "state")
+	private String state;
 
-	@Column(name = "id_event")
-	private Integer id_event;
-
-	// mapeo
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_user")
 	private User user;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_event")
 	private Event event;
-	
-	
-	public Assist(Integer id_assist, Integer id_user, Integer id_event) {
+
+	public Assist(Integer id_assist) {
 		this.id_assist = id_assist;
-		this.id_user = id_user;
-		this.id_event = id_event;
 	}
 
 	public Assist() {
@@ -50,21 +42,5 @@ public class Assist {
 
 	public void setId_assist(Integer id_assist) {
 		this.id_assist = id_assist;
-	}
-
-	public Integer getId_user() {
-		return id_user;
-	}
-
-	public void setId_user(Integer id_user) {
-		this.id_user = id_user;
-	}
-
-	public Integer getId_event() {
-		return id_event;
-	}
-
-	public void setId_event(Integer id_event) {
-		this.id_event = id_event;
 	}
 }
