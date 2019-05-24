@@ -12,13 +12,13 @@ import es.eoi.facenet.entities.Post;
 import es.eoi.facenet.services.PostService;
 
 @RestController
-@RequestMapping(value = "/posts")
+//@RequestMapping(value = "/posts")
 public class PostsController {
 
 	@Autowired
 	private PostService service;
 
-	@RequestMapping(method = RequestMethod.POST, params = {"content", "publishdate"})
+	@RequestMapping(method = RequestMethod.POST, value = "/posts", params = {"content", "publishdate"})
 		public Post savePost(
 			@RequestParam(value = "content") String content,
 			@RequestParam(value = "publishdate") Date publishdate){
@@ -29,14 +29,14 @@ public class PostsController {
 		}
 
 		
-		@RequestMapping(method = RequestMethod.GET, value="/{id}/findid", params = {"id"})
+		@RequestMapping(method = RequestMethod.GET, value="/posts/{id}/findid", params = {"id"})
 		public Post findByIdPost(
 		@PathParam(value = "id") int id){
 				return service.findById(id);
 		}
 		
 		
-		@RequestMapping(method = RequestMethod.GET, value="/{id}/existsid",params = {"id"})
+		@RequestMapping(method = RequestMethod.GET, value="/posts/{id}/existsid",params = {"id"})
 		public boolean existsByIdPost(
 		@PathParam(value = "id") int id) {
 		if(service.existsById(id) == true) {
@@ -47,7 +47,7 @@ public class PostsController {
 		}
 
 		
-		@RequestMapping(method = RequestMethod.DELETE, value="/{id}/deleteid", params = {"id"})
+		@RequestMapping(method = RequestMethod.DELETE, value="/posts/{id}/deleteid", params = {"id"})
 		public void deletePostById(
 				@PathParam(value = "id") int id) {
 			service.deleteById(id);
