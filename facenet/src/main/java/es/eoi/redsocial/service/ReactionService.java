@@ -2,7 +2,7 @@ package es.eoi.redsocial.service;
 
 import es.eoi.redsocial.entity.Message;
 import es.eoi.redsocial.entity.User;
-import es.eoi.redsocial.repository.ReactionRepository;
+
 
 import java.util.List;
 
