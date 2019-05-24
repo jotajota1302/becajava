@@ -3,12 +3,14 @@ package es.eoi.redsocial.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.eoi.redsocial.entities.Assistance;
 import es.eoi.redsocial.entities.Event;
 import es.eoi.redsocial.entities.User;
 import es.eoi.redsocial.repositories.IAssistanceRepository;
 
+@Service
 public class AssistanceServiceImpl implements IAssistanceService{
 
 	@Autowired

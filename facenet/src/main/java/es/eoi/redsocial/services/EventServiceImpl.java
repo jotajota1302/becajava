@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.eoi.redsocial.entities.Event;
 import es.eoi.redsocial.entities.User;
 import es.eoi.redsocial.repositories.IEventRepository;
 
+@Service
 public class EventServiceImpl implements IEventService {
 
 	@Autowired
