@@ -38,7 +38,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void createUser(String name, String surname, Date birthdate, String user, String pass) {
-		
+		User userr = new User();
+		userr.setNombre(name);
+		userr.setApellido(surname);
+		userr.setFechaNacimiento(birthdate);
+		userr.setUsuario(user);
+		userr.setPass(pass);
+		//Aqui iria la fecha de alta
+		userRepository.save(userr);
 		
 		
 	}
@@ -47,6 +54,8 @@ public class UserServiceImpl implements UserService {
 	public void updateSurnameById(int id, String surname) {
 		User user = new User();
 		user = userRepository.findById(id).get();
+		user.setApellido(surname);
+		userRepository.save(user);
 		
 		
 	}
