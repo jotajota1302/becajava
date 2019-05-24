@@ -17,9 +17,9 @@ public interface AssistanceRepository extends JpaRepository<Assistance, Integer>
 	@Query("Select u from user u where id in (Select a.user.id_user from Assistance a where a.state='no')")
 	List<User> findByUsersNotAssistance();
 	
-	@Query("Select e from event e where id in (Select e.event.id_event from Assistance a where a.state='yes')")
+	@Query("Select e from event e where id in (Select a.event.id_event from Assistance a where a.state='yes')")
 	List<Event> findByEventYesAssistance();
 	
-	@Query("Select e from event e where id in (Select e.event.id_event from Assistance a where a.state='no')")
+	@Query("Select e from event e where id in (Select a.event.id_event from Assistance a where a.state='no')")
 	List<Event> findByEventNotAssistance();
 }

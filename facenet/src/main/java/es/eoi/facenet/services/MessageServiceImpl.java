@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.eoi.facenet.entities.Message;
+import es.eoi.facenet.entities.Reaction;
 import es.eoi.facenet.entities.User;
 import es.eoi.facenet.repositories.MessageRepository;
 
@@ -48,5 +49,11 @@ public class MessageServiceImpl implements MessageService {
 	public List<Message> findByUserId(int id) {
 		return repositoryMessage.findByUserId(id);
 	}
+
+	@Override
+	public List<Message> findByFriends(int id) {
+		return repositoryMessage.findByFriend(id);
+	}
+
 
 }
