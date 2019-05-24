@@ -28,22 +28,21 @@ public class Relationship {
 	private int state;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_receive")
+	@JoinColumn(name="idreceive")
 	private User receiveUser;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_send")
+	@JoinColumn(name="idsend")
 	private User sendUser;
 
 	public Relationship() {
 
 	}
 
-	public Relationship(int id, int state, User receiveUser, User sendUser) {
-		this.id = id;
-		this.state = state;
+	public Relationship(User receiveUser, User sendUser,int state) {
 		this.receiveUser = receiveUser;
 		this.sendUser = sendUser;
+		this.state = state;
 	}
 
 }

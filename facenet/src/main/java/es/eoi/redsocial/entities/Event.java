@@ -48,8 +48,7 @@ public class Event {
 
 	}
 
-	public Event(int id, String name, String description, Date eventDate, User user, List<Assistance> assistances) {
-		this.id = id;
+	public Event(String name, String description, Date eventDate, User user) {
 		this.name = name;
 		this.description = description;
 		this.eventDate = eventDate;

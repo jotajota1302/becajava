@@ -7,36 +7,33 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-<<<<<<< Upstream, based on branch 'grupo4' of https://github.com/jotajota1302/becajava.git
-
+import es.eoi.redsocial.entities.Assistance;
+import es.eoi.redsocial.entities.Event;
 import es.eoi.redsocial.entities.Message;
+import es.eoi.redsocial.entities.Relationship;
 import es.eoi.redsocial.entities.User;
+import es.eoi.redsocial.repositories.IAssistanceRepository;
+import es.eoi.redsocial.repositories.IEventRepository;
 import es.eoi.redsocial.repositories.IMessageRepository;
 import es.eoi.redsocial.repositories.IUserRepository;
-=======
-import es.eoi.redsocial.entities.Event;
-import es.eoi.redsocial.repositories.EventRepository;
-import es.eoi.redsocial.repositories.UserRepository;
->>>>>>> ed57297 Event Repository(saveEvent)
+import es.eoi.redsocial.repositories.IRelationshipRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class FacenetApplicationTests {
-	
+
 	@Autowired
-<<<<<<< Upstream, based on branch 'grupo4' of https://github.com/jotajota1302/becajava.git
 	IUserRepository repository;
 	@Autowired
 	IMessageRepository mrepository;
-=======
-	EventRepository eventRepository;
-	
 	@Autowired
-	UserRepository userRepository;
->>>>>>> ed57297 Event Repository(saveEvent)
+	IEventRepository eventRepository;
+	@Autowired
+	IAssistanceRepository assistanceRepository;
+	@Autowired
+	IRelationshipRepository relationshipRepository;
 
 	@Test
-<<<<<<< Upstream, based on branch 'grupo4' of https://github.com/jotajota1302/becajava.git
 	public void CreateUser_UserCreated() {
 
 		// prepare
@@ -47,46 +44,52 @@ public class FacenetApplicationTests {
 		// act
 		User user = repository.save(entity);
 
-		// assert
-		assertEquals(user.getName(), entity.getName());
+		 assertEquals(user.getName(), entity.getName());
 
-=======
-	public void contextLoads() {
-		
-		//-----------EVENTOS------------
-		
-		//guardar evento (funciona)
-		/*
-		 * Event event=new Event(); event.setName("Fiesta");
-		 * event.setDescription("jkhkgyt");
-		 * event.setEventDate(Calendar.getInstance().getTime());
-		 * event.setUser(userRepository.findById(1).get());
-		 * 
-		 * eventRepository.save(event);
-		 */
-			
-		
->>>>>>> ed57297 Event Repository(saveEvent)
 	}
 
-<<<<<<< Upstream, based on branch 'grupo4' of https://github.com/jotajota1302/becajava.git
+	/*
+	 * @Test public void CreateMessage_MessageCreated() { // Prepare User user =
+	 * repository.findById(1).get(); Message m = new Message();
+	 * m.setContent("Hola esto es un mensaje");
+	 * m.setPublishDate(Calendar.getInstance().getTime()); m.setUserObject(user);
+	 */
+
+	// act Message message = mrepository.save(m);
+
+	// assert assertEquals(message.getContent(), m.getContent()); }
+
 	@Test
-	public void CreateMessage_MessageCreated() {
-		// Prepare
-		User user = repository.findById(1).get();
-		Message m = new Message();
-		m.setContent("Hola esto es un mensaje");
-		m.setPublishDate(Calendar.getInstance().getTime());
-		m.setUserObject(user);
+	public void createEvent_EventCreated() {
+		
+		Event event = new Event();
+		event.setName("Fiesta");
+		event.setDescription("jkhkgyt");
+		event.setEventDate(Calendar.getInstance().getTime());
+		event.setUser(repository.findById(1).get());
 
-		// act
-		Message message = mrepository.save(m);
+		eventRepository.save(event);
 
-		// assert
-		assertEquals(message.getContent(), m.getContent());
+	}
+
+	@Test
+	public void createAssistance_assistanceCreated() {
+		Assistance assistance = new Assistance();
+		assistance.setUser(repository.findById(1).get());
+		assistance.setEvent(eventRepository.findById(7).get());
+		assistance.setState(1);
+
+		assistanceRepository.save(assistance);
+	}
+	
+	@Test
+	public void createRelationship_RelationshipCreated() {
+		Relationship relationship= new Relationship();
+		relationship.setReceiveUser(repository.findById(1).get());
+		relationship.setSendUser(repository.findById(2).get());
+		relationship.setState(1);
+		
+		relationshipRepository.save(relationship);
 	}
 
 }
-=======
-}
->>>>>>> ed57297 Event Repository(saveEvent)

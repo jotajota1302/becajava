@@ -1,8 +1,11 @@
 package es.eoi.redsocial.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import es.eoi.redsocial.entities.Relationship;
 
-public interface RelationshipRepository extends JpaRepository<Relationship, Integer> {
+@Repository
+public interface IRelationshipRepository extends JpaRepository<Relationship, Integer> {
 
 }

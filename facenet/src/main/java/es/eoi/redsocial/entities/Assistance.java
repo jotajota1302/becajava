@@ -28,19 +28,18 @@ public class Assistance {
 	private int state;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_user")
+	@JoinColumn(name = "iduser")
 	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_event")
+	@JoinColumn(name = "idevent")
 	private Event event;
 
 	public Assistance() {
 
 	}
 
-	public Assistance(int id, int state, User user, Event event) {
-		this.id = id;
+	public Assistance(User user, Event event,int state) {
 		this.state = state;
 		this.user = user;
 		this.event = event;
