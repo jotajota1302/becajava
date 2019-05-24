@@ -11,7 +11,7 @@ public class RelationshipServiceImpl implements RelationshipService{
 
 	@Autowired
 	private RelationshipRepository repository;
-	
+
 	@Override
 	public Relationship save(Relationship relationship) {
 		return repository.save(relationship);

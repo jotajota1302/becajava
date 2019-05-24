@@ -1,7 +1,6 @@
 package es.eoi.facenet.services;
 
 import java.util.List;
-
 import es.eoi.facenet.entities.Relationship;
 
 public interface RelationshipService {
