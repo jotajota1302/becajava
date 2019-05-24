@@ -1,10 +1,15 @@
 package es.eoi.facenet.entities;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +17,7 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
 	
@@ -30,7 +36,17 @@ public class User {
 	@Column(name = "username")
 	private String userName;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user1")
+	private List<Relationship> relationship1;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user2")
+	private List<Relationship> relationship2;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private List<Assist> assist;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private List<Event> event;
 	
 	public User() {
 		

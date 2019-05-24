@@ -1,6 +1,8 @@
 package es.eoi.facenet.entities;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,13 +30,13 @@ public class Event {
 
 	@Column(name = "id_user")
 	private Integer id_user;
-	/*
-	 * Mapeado
-	 * 
-	 * @ManyToOne(fetch = FetchType.LAZY)
-	 * 
-	 * @JoinColumn(name = )
-	 */
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
+	private List<Assist> assists;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_user")
+	private User user;
 
 	public Event() {
 	}
