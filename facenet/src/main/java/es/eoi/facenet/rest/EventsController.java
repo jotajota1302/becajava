@@ -35,16 +35,44 @@ public class EventsController {
 		return new ResponseEntity<>(eventDto, HttpStatus.OK);
 	}
 	
-//	@RequestMapping(method = RequestMethod.GET, value = "/events/{id}")
-//	public ResponseEntity<List<EventDto>> findById() {
-//		ModelMapper mapper = new ModelMapper();
-//		List<EventDto> eventDto;
-//		List<Event> events = eventservice.findById(id);
-//		java.lang.reflect.Type targetListType = new TypeToken<List<EventDto>>() {}.getType();
-//		eventDto = mapper.map(events, targetListType);
-//		return new ResponseEntity<>(eventDto, HttpStatus.OK);
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public ResponseEntity<EventDto> findById(int id) {
+		ModelMapper mapper = new ModelMapper();
+		EventDto eventDto;
+		Event events = eventservice.findById(id);
+		java.lang.reflect.Type targetListType = new TypeToken<List<EventDto>>() {}.getType();
+		eventDto = mapper.map(events, targetListType);
+		return new ResponseEntity<>(eventDto, HttpStatus.OK);
+	}
+	
+//	@RequestMapping(method = RequestMethod.POST, value = "/{id}")
+//	public 
+	
+//	@RequestMapping(method = RequestMethod.POST, value = "/{id}/yesAssistance")
+//	public 
+
+//	@RequestMapping(method = RequestMethod.POST, value = "/{id}/notAssistance")
+//	public
+	
+//	@RequestMapping(method = RequestMethod.GET, value = "{id}/users/yesAssistance")
+//	public ResponseEntity<List<AssistanceDto>> findByUsersYesAssistance() {
+//		return null;
 //	}
 //	
-//	@RequestMapping(mehod = RequestMethod.POST)
-//	public
+//	@RequestMapping(method = RequestMethod.GET, value = "{id}/users/notAssistance")
+//	public ResponseEntity<List<AssistanceDto>> findByUsersNotAssistance() {
+//		return null;
+//	}
+//	
+//	@RequestMapping(method = RequestMethod.GET, value = "user/{id}/yesAssistance")
+//	public ResponseEntity<List<EventDto>> findByEventYesAssistance() {
+//		return null;
+//	}
+//	
+//	@RequestMapping(method = RequestMethod.GET, value = "user/{id}/notAssistance")
+//	public ResponseEntity<List<EventDto>> findByEventNotAssistance() {
+//		return null;
+//	}
+
+	
 }
