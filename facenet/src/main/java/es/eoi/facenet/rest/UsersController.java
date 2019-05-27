@@ -37,7 +37,7 @@ public class UsersController {
 	private UserService serviceUser;
 
 	@Autowired
-	RelationshipService serviceRelationship;
+	private RelationshipService serviceRelationship;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<UserDto>> findEvents() {
