@@ -27,6 +27,7 @@ import es.eoi.facenet.entities.Message;
 import es.eoi.facenet.entities.Reaction;
 import es.eoi.facenet.entities.Relationship;
 import es.eoi.facenet.entities.User;
+import es.eoi.facenet.services.RelationshipService;
 import es.eoi.facenet.services.UserService;
 
 @RestController
@@ -34,6 +35,9 @@ import es.eoi.facenet.services.UserService;
 public class UsersController {
 	@Autowired
 	private UserService serviceUser;
+
+	@Autowired
+	RelationshipService serviceRelationship;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<UserDto>> findEvents() {
@@ -133,7 +137,7 @@ public class UsersController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/login", params = { "user", "pass" })
+	@RequestMapping(method = RequestMethod.POST, value = "/login", params = { "user", "pass" })
 	public ResponseEntity<UserDto> login(@RequestParam(value = "user") String user,
 			@RequestParam(value = "pass") String pass) {
 
@@ -143,4 +147,17 @@ public class UsersController {
 
 		return new ResponseEntity<>(usDto, HttpStatus.OK);
 	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/relationship/{id}")
+	public ResponseEntity<Void> updateRelationship(@PathVariable(value = "id") int id) {
+
+		boolean bool = serviceRelationship.updateRelationship(id);
+
+		if (bool) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+	}
+
 }
