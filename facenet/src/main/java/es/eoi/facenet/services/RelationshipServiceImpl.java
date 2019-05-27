@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.eoi.facenet.entities.Relationship;
+import es.eoi.facenet.entities.User;
 import es.eoi.facenet.repositories.RelationshipRepository;
 
 @Service
@@ -43,6 +44,16 @@ public class RelationshipServiceImpl implements RelationshipService {
 		
 		
 		
+	}
+
+	@Override
+	public boolean createRelationship(String name, User user1, User user2) {
+		Relationship relationship = new Relationship(name, user1, user2);
+		if(repositoryRelation.saveAndFlush(relationship)!=null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	

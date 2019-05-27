@@ -148,6 +148,22 @@ public class UsersController {
 		return new ResponseEntity<>(usDto, HttpStatus.OK);
 	}
 
+	@RequestMapping(method = RequestMethod.POST, value = "/{id}/relationship",params= {"id_user1","id_user2"})
+	public ResponseEntity<Void> createRelationship(@PathVariable(value = "id") int id,
+			@RequestParam(value = "id_user1") int id_user1,@RequestParam(value = "id_user2") int id_user2) {
+		
+		User user1 = serviceUser.findById(id_user1);
+		User user2 = serviceUser.findById(id_user2);
+
+		boolean bool = serviceRelationship.createRelationship("FRIEND", user1, user2);
+
+		if (bool) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+	}
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/relationship/{id}")
 	public ResponseEntity<Void> updateRelationship(@PathVariable(value = "id") int id) {
 
