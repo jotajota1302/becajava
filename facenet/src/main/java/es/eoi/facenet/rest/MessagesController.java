@@ -80,7 +80,8 @@ public class MessagesController {
 			@RequestParam(value = "publishdate") Date publishdate, @RequestParam(value = "id_user") int id_user) {
 
 		User user = serviceUser.findById(id_user);
-		if (serviceMessage.createMessage(content, publishdate, user)) {
+		boolean bool = serviceMessage.createMessage(content, publishdate, user);
+		if (bool) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
