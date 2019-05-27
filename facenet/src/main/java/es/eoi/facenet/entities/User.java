@@ -51,6 +51,9 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Event> event;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private List<Post> post;
+	
 	public User() {
 		
 	}
