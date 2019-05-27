@@ -20,46 +20,47 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "surname")
 	private String surName;
-	
+
 	@Column(name = "birthdate")
 	private Date birthDate;
-	
+
 	@Column(name = "startdate")
 	private Date startDate;
-	
+
 	@Column(name = "username")
 	private String userName;
-	
+
 	@Column(name = "pass")
 	private String pass;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user1")
 	private List<Relationship> relationship1;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user2")
 	private List<Relationship> relationship2;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Assist> assist;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Event> event;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	private List<Post> post;
-	
+	private List<Post> posts;
+
 	public User() {
-		
+
 	}
 
-	public User(int id, String name, String surName, Date birthDate, Date startDate, String userName, String pass) {
-		
+	public User(int id, String name, String surName, Date birthDate, Date startDate, String userName, String pass,
+			List<Relationship> relationship1, List<Relationship> relationship2, List<Assist> assist, List<Event> event,
+			List<Post> posts) {
 		this.id = id;
 		this.name = name;
 		this.surName = surName;
@@ -67,8 +68,12 @@ public class User {
 		this.startDate = startDate;
 		this.userName = userName;
 		this.pass = pass;
+		this.relationship1 = relationship1;
+		this.relationship2 = relationship2;
+		this.assist = assist;
+		this.event = event;
+		this.posts = posts;
 	}
-	
 
 	public int getId() {
 		return id;
@@ -125,6 +130,13 @@ public class User {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
-	
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
 }
