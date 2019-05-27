@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "es.eoi")
-@EntityScan( basePackages = {"es.eoi"} )
+@EnableJpaRepositories(basePackages = "es.eoi.facenet.repositories")
+@EntityScan( basePackages = {"es.eoi.facenet.entities"} )
 @ComponentScan(basePackages = "es.eoi")
 @EnableAutoConfiguration
 public class FacenetApplication {

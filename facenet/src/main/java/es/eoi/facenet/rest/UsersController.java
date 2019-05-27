@@ -215,5 +215,4 @@ public class UsersController {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 	}
-
 }
