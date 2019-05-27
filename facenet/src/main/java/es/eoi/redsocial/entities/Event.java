@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import es.eoi.redsocial.dto.UserDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,6 +47,7 @@ public class Event {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
 	private List<Assistance> assistances;
 
+	
 	public Event() {
 
 	}
@@ -55,4 +59,8 @@ public class Event {
 		this.userObject = user;
 	}
 
+
+	
+
+	
 }

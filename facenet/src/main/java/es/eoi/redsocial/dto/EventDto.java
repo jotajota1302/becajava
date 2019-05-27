@@ -1,10 +1,6 @@
 package es.eoi.redsocial.dto;
 
 import java.util.Date;
-import java.util.List;
-
-import es.eoi.redsocial.entities.Assistance;
-import es.eoi.redsocial.entities.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,8 +20,8 @@ public class EventDto {
 	}
 
 
-	public EventDto(int id, String name, String description, Date eventDate, UserDto user) {
-		this.id = id;
+	public EventDto(String name, String description, Date eventDate, UserDto user) {
+
 		this.name = name;
 		this.description = description;
 		this.eventDate = eventDate;
