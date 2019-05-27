@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -77,19 +76,19 @@ public class UsersController {
 			
 			return service.save(user);
 		}
-	//Test okey
+	
+	//Test no okey
 	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
-	@Query(value = "SELECT * FROM USERS WHERE USERNAME LIKE =?1  AND PASS =2")
-	public String login(
+	public User login(
 	
 			@RequestParam(value = "username") String userName,
 			@RequestParam(value = "pass") String pass
-			
 			) {
-	return userName;
+				
+				return service.findAllActiveUsers(userName, pass);
 	}
 	
-	//
+	//Test okey
 	@RequestMapping(method = RequestMethod.POST, value = "user/{id}/inviteFriend", params = {"state", "id_user1", "id_user2"})
 	public Relationship newInvite(
 			
@@ -111,5 +110,20 @@ public class UsersController {
 		
 		return Rservice.save(relationship);
 	}
+	
+//	@RequestMapping(method = RequestMethod.GET, value = "user/{id}/pendingRelationship")
+//	@Query("SELECT * FROM RELATIONSHIPS WHERE ID_USER1 LIKE = ?1")
+//	public List<Relationship> listPending(
+//			@PathVariable int id
+//			
+//			) {
+//		
+//		Relationship relationship = new Relationship();
+//		
+//		relationship.getUser1();
+//		
+//		
+//		return Rservice.findById(relationship);
+//	}
 	
 }

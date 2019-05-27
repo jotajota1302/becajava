@@ -38,10 +38,14 @@ public class UserServiceImpl implements UserService {
 		return repository.existsById(id);
 	}
 
-	
+	@Override
+	public User findAllActiveUsers(String userName, String pass) {
+		// TODO Auto-generated method stub
+		return repository.findAllActiveUsers(userName, pass);
+	}
 
 	
-	
+
 	
 	
 }

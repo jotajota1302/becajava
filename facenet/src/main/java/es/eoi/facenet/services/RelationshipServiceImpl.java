@@ -17,10 +17,7 @@ public class RelationshipServiceImpl implements RelationshipService{
 		return repository.save(relationship);
 	}
 
-	@Override
-	public Relationship findById(int id) {
-		return repository.findById(id).get();
-	}
+	
 
 	@Override
 	public void deleteById(int id) {
@@ -35,6 +32,14 @@ public class RelationshipServiceImpl implements RelationshipService{
 	@Override
 	public List<Relationship> findAll() {
 		return repository.findAll();
+	}
+
+
+
+	@Override
+	public Relationship findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
