@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import es.eoi.redsocial.dto.UserDto;
 import es.eoi.redsocial.entities.Event;
 import es.eoi.redsocial.entities.User;
 import es.eoi.redsocial.repositories.IEventRepository;
@@ -36,17 +34,10 @@ public class EventServiceImpl implements IEventService {
 		}
 	}
 
-
-	
 	 @Override 
 	 public Event save(String name, String description, Date eventdate,User userObject) { 
 		 Event event=new Event(name, description, eventdate,userObject); 
 		 return eventRepository.save(event); }
-
-	@Override
-	public List<Event> findEventsFromUsers(int iduser) {
-		return (List<Event>) eventRepository.findEventsFromUsers(iduser);
-	}
 
 	
 	 

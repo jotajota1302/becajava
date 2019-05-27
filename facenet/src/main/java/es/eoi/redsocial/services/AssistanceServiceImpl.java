@@ -40,17 +40,4 @@ public class AssistanceServiceImpl implements IAssistanceService{
 		return assistRepository.save(assist);
 	}
 
-	@Override
-	public Assistance findUsersFromEvent(int idevent) {
-		return assistRepository.findUsersFromEvent(idevent);
-	}
-
-
-
-
-	
-	
-
-
-
 }

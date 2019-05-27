@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.common.reflect.TypeToken;
-
-import es.eoi.redsocial.dto.AssistanceDto;
 import es.eoi.redsocial.dto.EventDto;
 import es.eoi.redsocial.entities.Assistance;
 import es.eoi.redsocial.entities.Event;
@@ -66,8 +65,7 @@ public class EventsController {
 	}
 
 	// create eventAssistance
-	@RequestMapping(method = RequestMethod.POST, params = { "iduser", "idevent",
-			"state" }, value = "/{id}/{YesAssistance}")
+	@RequestMapping(method = RequestMethod.POST, params = { "iduser", "idevent","state" }, value = "/{id}/{YesAssistance}")
 	public Assistance create(
 			@RequestParam(value = "iduser") User userObject,
 			@RequestParam(value = "idevent") Event eventObject,
@@ -75,16 +73,5 @@ public class EventsController {
 		return assistService.save(userObject, eventObject, state);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<EventDto>> findEventsFromUsers(@PathVariable int iduser) {
-		ModelMapper mapper = new ModelMapper();
-		List<EventDto> eventDto;
-		List<Event> event = eventService.findEventsFromUsers(iduser);
-		java.lang.reflect.Type targetListType = new TypeToken<List<EventDto>>() {
-		}.getType();
-		eventDto = mapper.map(event, targetListType);
-		return new ResponseEntity<>(eventDto, HttpStatus.OK);
-
-	}
-
+	
 }

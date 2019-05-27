@@ -2,7 +2,6 @@ package es.eoi.redsocial.entities;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,10 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import es.eoi.redsocial.dto.UserDto;
 import lombok.Getter;
 import lombok.Setter;
 

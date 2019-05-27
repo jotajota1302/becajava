@@ -16,5 +16,4 @@ public interface IAssistanceService {
 	public void deleteById(int id);
 	public Assistance findById(int id);
 	public Assistance save(User userObject, Event eventObject, int state);
-	public Assistance findUsersFromEvent(int idevent);
 	}
