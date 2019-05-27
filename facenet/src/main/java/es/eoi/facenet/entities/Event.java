@@ -20,7 +20,7 @@ public class Event {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private int id;
 
 	@Column(name = "name")
 	private String name;
@@ -28,8 +28,8 @@ public class Event {
 	@Column(name = "description")
 	private String description;
 
-	@Column(name = "eventDate")
-	private Date eventDate;
+	@Column(name = "eventdate")
+	private Date eventdate;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
 	private List<Assist> assists;
@@ -41,19 +41,20 @@ public class Event {
 	public Event() {
 	}
 
-	public Event(Integer id, String name, String description, Date eventDate) {
+	public Event(int id, String name, String description, Date eventdate, List<Assist> assists, User user) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.eventDate = eventDate;
-
+		this.eventdate = eventdate;
+		this.assists = assists;
+		this.user = user;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -73,12 +74,27 @@ public class Event {
 		this.description = description;
 	}
 
-	public Date getEventDate() {
-		return eventDate;
+	public Date geteventdate() {
+		return eventdate;
 	}
 
-	public void setEventDate(Date eventDate) {
-		this.eventDate = eventDate;
+	public void setEventDate(Date eventdate) {
+		this.eventdate = eventdate;
 	}
 
+	public List<Assist> getAssists() {
+		return assists;
+	}
+
+	public void setAssists(List<Assist> assists) {
+		this.assists = assists;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

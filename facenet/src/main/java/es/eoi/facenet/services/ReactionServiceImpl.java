@@ -1,7 +1,6 @@
 package es.eoi.facenet.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import es.eoi.facenet.entities.Reaction;

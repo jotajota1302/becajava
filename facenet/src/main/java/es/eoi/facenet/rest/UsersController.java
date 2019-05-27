@@ -3,6 +3,8 @@ package es.eoi.facenet.rest;
 import java.util.Date;
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,10 +34,13 @@ public class UsersController {
 		return service.findAll();
 	}
 	
+
 	//Test okey
-	@RequestMapping(method = RequestMethod.GET, value = "/users/{id}")
-	public User user (@PathVariable int id ) 
-			 {
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/users/{id}", params = {"id"})
+	public User user(
+			@PathParam(value = "id" ) int id) {
+
 		return service.findById(id);
 	}
 	
@@ -46,8 +51,7 @@ public class UsersController {
 			@RequestParam(value = "surname") String surName,
 			@RequestParam(value = "birthdate") Date birthDate,
 			@RequestParam(value = "username") String userName,
-			@RequestParam(value = "pass") String pass
-			) {
+			@RequestParam(value = "pass") String pass) {
 		User user = new User();
 		Date date = new Date();
 		
@@ -61,13 +65,14 @@ public class UsersController {
 		return service.save(user);
 	}
 	
+
 	//Test okey
+
+
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/{id}", params = {"surname"})
 	public User updateUser(
-			
-			@PathVariable int id,
+			@PathParam(value = "id") int id,
 			@RequestParam(value = "surname") String surname
-			
 			) {
 		
 			User user = service.findById(id);
@@ -76,6 +81,7 @@ public class UsersController {
 			
 			return service.save(user);
 		}
+
 	
 	//Test no okey
 	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
