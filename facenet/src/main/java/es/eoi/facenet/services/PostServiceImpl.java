@@ -31,11 +31,6 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public boolean existsById(int id) {
-		return repository.existsById(id);
-	}
-
-	@Override
 	public List<Post> findAll() {
 		return repository.findAll();
 	}

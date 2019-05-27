@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import es.eoi.facenet.entities.User;
 
-@Service
 public interface UserService {
 
 	public List<User> findAll();

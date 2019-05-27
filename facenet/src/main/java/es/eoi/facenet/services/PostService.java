@@ -12,7 +12,5 @@ public interface PostService {
 	
 	public void deleteById(int id);
 	
-	public boolean existsById(int id);
-	
 	public List<Post> findAll();
 }
