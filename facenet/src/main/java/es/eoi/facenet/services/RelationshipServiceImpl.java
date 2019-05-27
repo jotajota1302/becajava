@@ -2,6 +2,8 @@ package es.eoi.facenet.services;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +56,17 @@ public class RelationshipServiceImpl implements RelationshipService {
 		}else {
 			return false;
 		}
+	}
+
+	@Override
+	public List<Relationship> findByPending(int id) {
+
+		return repositoryRelation.relationshipFriend(id);
+	}
+
+	@Override
+	public List<Relationship> findByFriend(int id) {
+		return repositoryRelation.relationshipPending(id);
 	}
 	
 	

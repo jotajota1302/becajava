@@ -147,6 +147,34 @@ public class UsersController {
 
 		return new ResponseEntity<>(usDto, HttpStatus.OK);
 	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}/friendsRelationship")
+	public ResponseEntity<List<RelationshipDto>> findFriend(@PathVariable(value = "id") int id) {
+		ModelMapper mapper = new ModelMapper();
+		List<Relationship> relaciones = serviceRelationship.findByFriend(id);
+		List<RelationshipDto> relacionesDto;
+
+		java.lang.reflect.Type targetListType1 = new TypeToken<List<RelationshipDto>>() {
+		}.getType();
+		
+		relacionesDto = mapper.map(relaciones, targetListType1);
+		return new ResponseEntity<>(relacionesDto, HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}/pendingRelationship")
+	public ResponseEntity<List<RelationshipDto>> findPending(@PathVariable(value = "id") int id) {
+		ModelMapper mapper = new ModelMapper();
+		List<Relationship> relaciones = serviceRelationship.findByPending(id);
+		List<RelationshipDto> relacionesDto;
+
+		java.lang.reflect.Type targetListType1 = new TypeToken<List<RelationshipDto>>() {
+		}.getType();
+		
+		relacionesDto = mapper.map(relaciones, targetListType1);
+		return new ResponseEntity<>(relacionesDto, HttpStatus.OK);
+	}
+	
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "user/relationship/{id}")
 	public ResponseEntity<Void> deleteRelationship(@RequestParam int id){
