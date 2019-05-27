@@ -17,9 +17,9 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	User login(String user, String pass);
 	
 	@Query("select r from Relationship r where r.relaciones like friend")
-	List<Relationship> friendRelationships(String friendlist);
+	List<Relationship> friendRelationships();
 	
 	@Query("select r from Relationship r where r.relaciones like pending")
-	List<Relationship> pendingRelationships(String pendinglist);
+	List<Relationship> pendingRelationships();
 	
 }

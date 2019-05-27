@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.eoi.redsocial.entity.Relationship;
 import es.eoi.redsocial.entity.User;
 import es.eoi.redsocial.repository.UserRepository;
 
@@ -55,6 +56,24 @@ public class UserServiceImpl implements UserService {
 	public User login(String username, String pass) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public User findbyId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Relationship> friendRelationships() {
+		// TODO Auto-generated method stub
+		return userRepository.friendRelationships();
+	}
+
+	@Override
+	public List<Relationship> pendingRelationships() {
+		// TODO Auto-generated method stub
+		return userRepository.pendingRelationships();
 	}
 	
 }
