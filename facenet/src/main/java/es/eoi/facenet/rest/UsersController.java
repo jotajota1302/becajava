@@ -137,7 +137,7 @@ public class UsersController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/login", params = { "user", "pass" })
+	@RequestMapping(method = RequestMethod.POST, value = "/login", params = { "user", "pass" })
 	public ResponseEntity<UserDto> login(@RequestParam(value = "user") String user,
 			@RequestParam(value = "pass") String pass) {
 
@@ -159,4 +159,33 @@ public class UsersController {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/{id}/relationship",params= {"id_user1","id_user2"})
+	public ResponseEntity<Void> createRelationship(@PathVariable(value = "id") int id,
+			@RequestParam(value = "id_user1") int id_user1,@RequestParam(value = "id_user2") int id_user2) {
+		
+		User user1 = serviceUser.findById(id_user1);
+		User user2 = serviceUser.findById(id_user2);
+
+		boolean bool = serviceRelationship.createRelationship("PENDING", user1, user2);
+
+		if (bool) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/relationship/{id}")
+	public ResponseEntity<Void> updateRelationship(@PathVariable(value = "id") int id) {
+
+		boolean bool = serviceRelationship.updateRelationship(id);
+
+		if (bool) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+	}
+
 }
