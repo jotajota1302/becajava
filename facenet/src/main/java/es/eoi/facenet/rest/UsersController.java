@@ -12,15 +12,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.eoi.facenet.entities.Relationship;
 import es.eoi.facenet.entities.User;
+import es.eoi.facenet.services.RelationshipService;
 import es.eoi.facenet.services.UserService;
 
 @Configuration
 @RestController
 public class UsersController {
-
+	
+	
 	@Autowired
 	UserService service;
+	@Autowired
+	RelationshipService Rservice;
 
 	//Test okey
 	@RequestMapping(method = RequestMethod.GET, value = "/users")
@@ -72,7 +77,7 @@ public class UsersController {
 			
 			return service.save(user);
 		}
-	 	
+	//Test okey
 	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
 	@Query(value = "SELECT * FROM USERS WHERE USERNAME LIKE =?1  AND PASS =2")
 	public String login(
@@ -83,4 +88,28 @@ public class UsersController {
 			) {
 	return userName;
 	}
+	
+	//
+	@RequestMapping(method = RequestMethod.POST, value = "user/{id}/inviteFriend", params = {"state", "id_user1", "id_user2"})
+	public Relationship newInvite(
+			
+			@PathVariable int id,
+			@RequestParam(value = "state") String state,
+			//El que invita
+			@RequestParam(value = "id_user1") int id_user1,
+			//A quien va la invitacion
+			@RequestParam(value = "id_user2") int id_user2
+			
+			) {
+		
+		Relationship relationship =  new Relationship();
+		
+		relationship.setState(state);
+		relationship.setUser1(service.findById(id_user1));
+		relationship.setUser2(service.findById(id_user2));
+		
+		
+		return Rservice.save(relationship);
+	}
+	
 }
