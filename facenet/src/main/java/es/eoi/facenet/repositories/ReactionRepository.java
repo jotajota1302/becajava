@@ -10,7 +10,7 @@ import es.eoi.facenet.entities.Reaction;
 
 public interface ReactionRepository extends JpaRepository<Reaction, Integer> { 
 	
-	@Query("SELECT r FROM Reactions r where r.message.id=:id")
+	@Query("SELECT r FROM Reaction r where r.message.id=:id")
 	List<Reaction> reactionList(@Param("id")int id);
 
 }

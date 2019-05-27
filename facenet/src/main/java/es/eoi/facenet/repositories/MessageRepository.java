@@ -12,11 +12,11 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 	@Query("Select m from Message m where m.user.id=:id")
 	List<Message> findByUserId(@Param("id") int id);
 
-	@Query("Select m from Message where "
+	@Query("Select m from Message m where "
 			+ "m.user.id=("
-			+ "SELECT r.user2.id FROM Relationships r where r.state = 'FRIEND' and r.user1.id=:id)"
+			+ "SELECT r.user2.id FROM Relationship r where r.state = 'FRIEND' and r.user1.id=:id)"
 			+ " or m.user.id=("
-			+ "SELECT r.user1.id FROM Relationships r where r.state = 'FRIEND' and r.user2.id=:id)")
+			+ "SELECT r.user1.id FROM Relationship r where r.state = 'FRIEND' and r.user2.id=:id)")
 	List<Message> findByFriend(@Param("id") int id);
 
 }
