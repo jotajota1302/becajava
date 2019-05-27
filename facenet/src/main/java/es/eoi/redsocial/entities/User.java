@@ -57,6 +57,9 @@ public class User {
 	public User() {
 		
 	}
+	public User(String name, String surname, String userName) {
+		
+	}
 	public User(int id, String name, String surname, Date birthDate, Date startDate, String userName, String pass) {
 		this.id = id;
 		this.name = name;

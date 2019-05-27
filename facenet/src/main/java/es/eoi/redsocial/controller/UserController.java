@@ -7,12 +7,14 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.eoi.redsocial.dto.UserDto;
@@ -84,7 +86,14 @@ public class UserController {
 			userService.updateUserById(currentUser.getId(),currentUser.getSurname());
 			return new ResponseEntity<User> (currentUser, HttpStatus.OK);
 		}
-		
 	}
-
+	// Login
+	@Query(value = "SELECT * FROM users WHERE user LIKE =1  AND PASS =2")
+	@RequestMapping(method = RequestMethod.POST,value = "user/login" )
+    public String login(@RequestParam(value = "username") String userName,
+            @RequestParam(value = "pass") String pass) {
+    return userName;
+	}
+	
+	// RelationShips
 }
