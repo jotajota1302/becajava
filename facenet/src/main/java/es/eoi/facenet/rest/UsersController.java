@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +35,7 @@ public class UsersController {
 		return service.findById(id);
 	}
 	
-	// Test okey
+	//Test okey
 	@RequestMapping(method = RequestMethod.POST, value = "/users",params = {"name", "surname", "birthdate", "username", "pass"} )
 	public User newUser(
 			@RequestParam(value = "name") String name,
@@ -56,7 +57,7 @@ public class UsersController {
 		return service.save(user);
 	}
 	
-	
+	//Test okey
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/{id}", params = {"surname"})
 	public User updateUser(
 			
@@ -72,13 +73,14 @@ public class UsersController {
 			return service.save(user);
 		}
 	 	
-//	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
-//	public User login(
-//			@RequestParam(value = "username") String userName,
-//			@RequestParam(value = "pass") String pass
-//			@Query(value = "SELECT * FROM USERS WHERE USERNAME LIKE = ? AND PASS = ?")
-//			
-//			
-//			) {
-//	return null;
+	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
+	@Query(value = "SELECT * FROM USERS WHERE USERNAME LIKE =?1  AND PASS =2")
+	public String login(
+	
+			@RequestParam(value = "username") String userName,
+			@RequestParam(value = "pass") String pass
+			
+			) {
+	return userName;
+	}
 }
