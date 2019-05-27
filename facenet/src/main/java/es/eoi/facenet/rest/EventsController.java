@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.eoi.facenet.dto.AssistanceDto;
 import es.eoi.facenet.dto.EventDto;
+import es.eoi.facenet.dto.FullEventDto;
 import es.eoi.facenet.dto.UserDto;
+import es.eoi.facenet.entities.Assistance;
 import es.eoi.facenet.entities.Event;
 import es.eoi.facenet.entities.User;
 import es.eoi.facenet.services.AssistanceService;
@@ -47,16 +49,27 @@ public class EventsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
-	public ResponseEntity<EventDto> findById(int id) {
+	public ResponseEntity<FullEventDto> findById(int id) {
 		ModelMapper mapper = new ModelMapper();
-		EventDto eventDto;
+
 		Event events = eventservice.findById(id);
-		java.lang.reflect.Type targetListType = new TypeToken<List<EventDto>>() {
+		User user = events.getUser();
+		UserDto userDto = new UserDto(user.getId(), user.getName(), user.getSurname(), user.getBirthdate(),
+				user.getStardate(), user.getUser(), user.getPass());
+		List<Assistance> asistencias = user.getAssistances();
+		List<AssistanceDto> asistenciasDto;
+
+		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
 		}.getType();
-		eventDto = mapper.map(events, targetListType);
+
+		asistenciasDto = mapper.map(asistencias, targetListType);
+
+		FullEventDto eventDto = new FullEventDto(events.getId(), events.getName(), events.getDescription(),
+				events.getEventDate(), userDto, asistenciasDto);
+
 		return new ResponseEntity<>(eventDto, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST, params = { "name", "description", "eventDate", "id_user" })
 	public ResponseEntity<Void> createEvent(@RequestParam(value = "name") String name,
 			@RequestParam(value = "description") String description, @RequestParam(value = "eventDate") Date eventDate,
@@ -86,7 +99,7 @@ public class EventsController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/{id}/notAssistance",params = "id_user")
+	@RequestMapping(method = RequestMethod.POST, value = "/{id}/notAssistance", params = "id_user")
 	public ResponseEntity<Void> createNoAssistance(@PathVariable(value = "id") int id,
 			@RequestParam(value = "id_user") int id_user) {
 
@@ -107,7 +120,8 @@ public class EventsController {
 		ModelMapper mapper = new ModelMapper();
 		List<UserDto> userDto;
 		List<User> user = assistanceservice.findByUsersYesAssistance();
-		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {}.getType();
+		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
+		}.getType();
 		userDto = mapper.map(user, targetListType);
 		return new ResponseEntity<>(userDto, HttpStatus.OK);
 	}
@@ -117,7 +131,8 @@ public class EventsController {
 		ModelMapper mapper = new ModelMapper();
 		List<UserDto> userDto;
 		List<User> user = assistanceservice.findByUsersNotAssistance();
-		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {}.getType();
+		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
+		}.getType();
 		userDto = mapper.map(user, targetListType);
 		return new ResponseEntity<>(userDto, HttpStatus.OK);
 	}
@@ -127,17 +142,19 @@ public class EventsController {
 		ModelMapper mapper = new ModelMapper();
 		List<EventDto> eventDto;
 		List<Event> event = assistanceservice.findByEventYesAssistance();
-		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {}.getType();
+		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
+		}.getType();
 		eventDto = mapper.map(event, targetListType);
 		return new ResponseEntity<>(eventDto, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "user/{id}/notAssistance")
 	public ResponseEntity<List<EventDto>> findByEventNotAssistance() {
 		ModelMapper mapper = new ModelMapper();
 		List<EventDto> eventDto;
 		List<Event> event = assistanceservice.findByEventNotAssistance();
-		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {}.getType();
+		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
+		}.getType();
 		eventDto = mapper.map(event, targetListType);
 		return new ResponseEntity<>(eventDto, HttpStatus.OK);
 	}
