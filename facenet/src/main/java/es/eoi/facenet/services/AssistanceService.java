@@ -6,13 +6,13 @@ import es.eoi.facenet.entities.Event;
 import es.eoi.facenet.entities.User;
 
 public interface AssistanceService {
-	public List<User> findByUsersYesAssistance();
+	public List<User> findByUsersYesAssistance(int id_event);
 
-	public List<User> findByUsersNotAssistance();
+	public List<User> findByUsersNotAssistance(int id_event);
 
-	public List<Event> findByEventYesAssistance();
+	public List<Event> findByEventYesAssistance(int id_user);
 
-	public List<Event> findByEventNotAssistance();
+	public List<Event> findByEventNotAssistance(int id_user);
 
 	public boolean notassist(Event event, User user);
 

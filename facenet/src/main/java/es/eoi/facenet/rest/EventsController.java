@@ -49,7 +49,7 @@ public class EventsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
-	public ResponseEntity<FullEventDto> findById(int id) {
+	public ResponseEntity<FullEventDto> findById(@PathVariable(value="id")int id) {
 		ModelMapper mapper = new ModelMapper();
 
 		Event events = eventservice.findById(id);
@@ -116,10 +116,10 @@ public class EventsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}/users/yesAssistance")
-	public ResponseEntity<List<UserDto>> findByUsersYesAssistance() {
+	public ResponseEntity<List<UserDto>> findByUsersYesAssistance(@PathVariable(value="id")int id) {
 		ModelMapper mapper = new ModelMapper();
 		List<UserDto> userDto;
-		List<User> user = assistanceservice.findByUsersYesAssistance();
+		List<User> user = assistanceservice.findByUsersYesAssistance(id);
 		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
 		}.getType();
 		userDto = mapper.map(user, targetListType);
@@ -127,10 +127,10 @@ public class EventsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "{id}/users/notAssistance")
-	public ResponseEntity<List<UserDto>> findByUsersNotAssistance() {
+	public ResponseEntity<List<UserDto>> findByUsersNotAssistance(@PathVariable(value="id")int id) {
 		ModelMapper mapper = new ModelMapper();
 		List<UserDto> userDto;
-		List<User> user = assistanceservice.findByUsersNotAssistance();
+		List<User> user = assistanceservice.findByUsersNotAssistance(id);
 		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
 		}.getType();
 		userDto = mapper.map(user, targetListType);
@@ -138,10 +138,10 @@ public class EventsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "user/{id}/yesAssistance")
-	public ResponseEntity<List<EventDto>> findByEventYesAssistance() {
+	public ResponseEntity<List<EventDto>> findByEventYesAssistance(@PathVariable(value="id")int id) {
 		ModelMapper mapper = new ModelMapper();
 		List<EventDto> eventDto;
-		List<Event> event = assistanceservice.findByEventYesAssistance();
+		List<Event> event = assistanceservice.findByEventYesAssistance(id);
 		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
 		}.getType();
 		eventDto = mapper.map(event, targetListType);
@@ -149,10 +149,10 @@ public class EventsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "user/{id}/notAssistance")
-	public ResponseEntity<List<EventDto>> findByEventNotAssistance() {
+	public ResponseEntity<List<EventDto>> findByEventNotAssistance(@PathVariable(value="id")int id) {
 		ModelMapper mapper = new ModelMapper();
 		List<EventDto> eventDto;
-		List<Event> event = assistanceservice.findByEventNotAssistance();
+		List<Event> event = assistanceservice.findByEventNotAssistance(id);
 		java.lang.reflect.Type targetListType = new TypeToken<List<AssistanceDto>>() {
 		}.getType();
 		eventDto = mapper.map(event, targetListType);

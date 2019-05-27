@@ -17,23 +17,23 @@ public class AssistanceServiceImpl implements AssistanceService {
 	private AssistanceRepository repository;
 
 	@Override
-	public List<User> findByUsersYesAssistance() {
-		return repository.findByUsersYesAssistance();
+	public List<User> findByUsersYesAssistance(int id_event) {
+		return repository.findByUsersYesAssistance(id_event);
 	}
 
 	@Override
-	public List<User> findByUsersNotAssistance() {
-		return repository.findByUsersNotAssistance();
+	public List<User> findByUsersNotAssistance(int id_event) {
+		return repository.findByUsersNotAssistance(id_event);
 	}
 
 	@Override
-	public List<Event> findByEventYesAssistance() {
-		return repository.findByEventYesAssistance();
+	public List<Event> findByEventYesAssistance(int id_user) {
+		return repository.findByEventYesAssistance(id_user);
 	}
 
 	@Override
-	public List<Event> findByEventNotAssistance() {
-		return repository.findByEventNotAssistance();
+	public List<Event> findByEventNotAssistance(int id_user) {
+		return repository.findByEventNotAssistance(id_user);
 	}
 
 	@Override
