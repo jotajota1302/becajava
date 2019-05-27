@@ -3,6 +3,9 @@ package es.eoi.redsocial.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
+import org.aspectj.asm.IRelationship;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
@@ -17,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.eoi.redsocial.dto.RelationshipDto;
 import es.eoi.redsocial.dto.UserDto;
+import es.eoi.redsocial.entities.Relationship;
 import es.eoi.redsocial.entities.User;
+import es.eoi.redsocial.services.IRelationshipService;
 import es.eoi.redsocial.services.IUserService;
 
 @RestController
@@ -27,6 +33,9 @@ public class UserController {
 
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private IRelationshipService relationService;
 
 	// FindAll
 	@RequestMapping(method = RequestMethod.GET)
@@ -94,6 +103,16 @@ public class UserController {
             @RequestParam(value = "pass") String pass) {
     return userName;
 	}
-	
+
 	// RelationShips
+	@RequestMapping(method = RequestMethod.GET,value = "{id}/friendsRelationship")
+	public ResponseEntity<List<RelationshipDto>> findRelationship(@PathVariable(value = "id") int id){
+		ModelMapper model = new ModelMapper();
+		List<RelationshipDto> relationDto;
+		List<Relationship> relation = relationService.findRelationship(id);
+		java.lang.reflect.Type targetListType = new TypeToken<List<RelationshipDto>>() {
+		}.getType();
+		relationDto = model.map(relation, targetListType);
+		return new ResponseEntity<>(relationDto, HttpStatus.OK);
+	}
 }

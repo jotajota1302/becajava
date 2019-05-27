@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import es.eoi.redsocial.entities.Relationship;
 import es.eoi.redsocial.entities.User;
 import es.eoi.redsocial.repositories.IUserRepository;
 
@@ -52,7 +54,7 @@ public class UserServiceImpl implements IUserService {
         user.setSurname(surname);
         userRepo.save(user);
 	}
-	
+		
 //	@Override
 //	public List<User> findByUserName(String userName) {
 //		ExampleMatcher ignoringExampleMatcher = ExampleMatcher.matchingAny().withMatcher("userName",

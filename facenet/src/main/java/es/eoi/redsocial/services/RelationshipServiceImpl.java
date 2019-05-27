@@ -3,7 +3,9 @@ package es.eoi.redsocial.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.eoi.redsocial.entities.Relationship;
 import es.eoi.redsocial.entities.User;
@@ -39,6 +41,10 @@ public class RelationshipServiceImpl implements IRelationshipService{
 	public Relationship save(User receiveUser, User sendUser, int state) {
 		Relationship relation=new Relationship (receiveUser, sendUser,state);
 		return relationRepository.save(relation);
+	}
+
+	public List<Relationship> findRelationship(int id){
+		return relationRepository.findAll();
 	}
 
 }

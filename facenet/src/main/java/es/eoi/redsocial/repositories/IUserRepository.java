@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import es.eoi.redsocial.entities.User;
 
-@Repository
+
 public interface IUserRepository extends JpaRepository<User, Integer>{
 	
 }
