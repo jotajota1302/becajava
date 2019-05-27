@@ -27,6 +27,7 @@ import es.eoi.facenet.entities.Message;
 import es.eoi.facenet.entities.Reaction;
 import es.eoi.facenet.entities.Relationship;
 import es.eoi.facenet.entities.User;
+import es.eoi.facenet.services.RelationshipService;
 import es.eoi.facenet.services.UserService;
 
 @RestController
@@ -34,6 +35,9 @@ import es.eoi.facenet.services.UserService;
 public class UsersController {
 	@Autowired
 	private UserService serviceUser;
+	
+	@Autowired
+	private RelationshipService serviceRelationship;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<UserDto>> findEvents() {
@@ -142,5 +146,17 @@ public class UsersController {
 				us.getUser(), us.getPass());
 
 		return new ResponseEntity<>(usDto, HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value = "user/relationship/{id}")
+	public ResponseEntity<Void> deleteRelationship(@RequestParam int id){
+		
+		boolean bool = serviceRelationship.deleteRelationship(id);
+	
+		if (bool == true) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
 	}
 }
