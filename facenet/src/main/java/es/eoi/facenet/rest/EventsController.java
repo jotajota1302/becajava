@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,39 +17,44 @@ import es.eoi.facenet.entities.Assist;
 import es.eoi.facenet.entities.Event;
 import es.eoi.facenet.entities.User;
 import es.eoi.facenet.services.EventService;
+import es.eoi.facenet.services.UserService;
 
 @Configuration
 @RestController
 public class EventsController {
 
 	@Autowired
-	private EventService service;
+	EventService eventService;
+	@Autowired
+	UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/events")
 	public List<Event> findAll() {
-		return service.findAll();
+		return eventService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/events/{id}", params = { "id" })
 	public Event findId(@PathParam(value = "id") int id) {
-		return service.findById(id);
+		return eventService.findById(id);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/events", params = {"description", "event_date", "name"})
+	@RequestMapping(method = RequestMethod.POST, value = "/events", params = {"description", "eventdate", "name", "id_user"})
 	public Event createEvent(
-			@RequestParam(name = "description ") String description, 
-			@RequestParam(name = "event_date") Date event_date,
-			@RequestParam(name = "name") String name) {
+			@RequestParam(value = "description") String description, 
+			@RequestParam(value = "eventdate") Date eventdate,
+			@RequestParam(value = "name") String name,
+			@RequestParam(value = "id_user") int id_user){
 		
 		Event event = new Event();
 		
 		event.setDescription(description);
-		event.setEventDate(event_date);
+		event.setEventDate(eventdate);
 		event.setName(name);
+		event.setUser(userService.findById(id_user));
 		
-		return service.createEvent(event);
+		return eventService.createEvent(event);
 	}
-	@RequestMapping(method = RequestMethod.POST, value = "/events/{id}/yesAssistance", params = {"id_user"})
+	@RequestMapping(method = RequestMethod.POST, value = "/events/{id_user}/yesAssistance", params = {"id_user"})
 	public boolean yesAssistance(
 			@PathParam(value = "id_user") int id_user) {
 		
@@ -70,8 +74,9 @@ public class EventsController {
 		return false;
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "events/{id}/yesAssistance", params = {"id_user"})
+	@RequestMapping(method = RequestMethod.GET, value = "events/{id}/users/yesAssistance", params = {"id_user"})
 	public List<Assist> findYesAssistance(@PathParam(value = "id_user") int id_user){
+		
 		List<Integer> yesAssistants = new ArrayList<Integer>();
 		
 		if(yesAssistance(id_user)) {
@@ -80,8 +85,9 @@ public class EventsController {
 		return findYesAssistance(id_user);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "events/{id}/notAssistance", params = {"id_user"})
+	@RequestMapping(method = RequestMethod.GET, value = "events/{id}/users/notAssistance", params = {"id_user"})
 	 public List<Assist> findNotAssistance(@PathParam(value = "id_user") int id_user){
+		
 		List<Integer> notAssistants = new ArrayList<Integer>();
 		
 	 if(notAssistance(id_user)){
@@ -90,13 +96,26 @@ public class EventsController {
 	 	return findNotAssistance(id_user);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "events/user/{id}/Assistence", params = {"id_user"})
-	public List<User> findAssistUser(@PathParam(value = "id_user") int id){
-		List<Integer> listEventsUser = new ArrayList<Integer>();
+	@RequestMapping(method = RequestMethod.GET, value = "events/user/{id}/yesAssistence", params = {"id_user"})
+	public List<User> findNotAssistUser(@PathParam(value = "id_user") int id_user){
 		
-		return null;
+		List<Integer> yesAssistEventsUser = new ArrayList<Integer>();
+		
+		if(yesAssistance(id_user)){
+			yesAssistEventsUser.add(id_user);
+		}
+		
+		return findNotAssistUser(id_user);
 	}
 	
-	// Faltan los dos últimos métodos.
-	
+	@RequestMapping(method = RequestMethod.GET, value = "events/user/{id}/notAssistance", params = {"id_user"})
+	public List<User> notAssistEventsUser(@PathParam(value = "id_user")int id_user){
+		
+		List<Integer> notAssistEventsUser = new ArrayList<Integer>();
+		
+		 if(notAssistance(id_user)){
+			 notAssistEventsUser.add(id_user);
+		 	}
+		 return findNotAssistUser(id_user);
+	}
 }
