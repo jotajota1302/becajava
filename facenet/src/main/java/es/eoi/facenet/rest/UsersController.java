@@ -155,7 +155,7 @@ public class UsersController {
 		User user1 = serviceUser.findById(id_user1);
 		User user2 = serviceUser.findById(id_user2);
 
-		boolean bool = serviceRelationship.createRelationship("FRIEND", user1, user2);
+		boolean bool = serviceRelationship.createRelationship("PENDING", user1, user2);
 
 		if (bool) {
 			return new ResponseEntity<>(HttpStatus.OK);
