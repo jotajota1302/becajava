@@ -31,8 +31,7 @@ public class UsersController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{id}", params = {"id"})
 	public User user(
-			@PathParam(value = "id" ) int id
-			) {
+			@PathParam(value = "id" ) int id) {
 		return service.findById(id);
 	}
 	
@@ -42,8 +41,7 @@ public class UsersController {
 			@RequestParam(value = "surname") String surName,
 			@RequestParam(value = "birthdate") Date birthDate,
 			@RequestParam(value = "username") String userName,
-			@RequestParam(value = "pass") String pass
-			) {
+			@RequestParam(value = "pass") String pass) {
 		User user = new User();
 		
 		user.setName(name);
@@ -55,11 +53,11 @@ public class UsersController {
 		return service.save(user);
 	}
 	
+	/*
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/{id}", params = {"surname"})
 	public boolean updateUser(
 			@PathParam(value = "id") int id,
-			@RequestParam(value = "surname") String surName
-			) {
+			@RequestParam(value = "surname") String surName) {
 		
 		if(service.existsById(id) == true) {
 			
@@ -73,6 +71,7 @@ public class UsersController {
 		}
 		 return false;
 	}
+	*/
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/login", params = {"username", "pass" })
 	public User login(
