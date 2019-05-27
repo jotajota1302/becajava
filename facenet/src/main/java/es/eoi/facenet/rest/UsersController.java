@@ -133,7 +133,7 @@ public class UsersController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/login", params = { "user", "pass" })
+	@RequestMapping(method = RequestMethod.GET, value = "/login", params = { "user", "pass" })
 	public ResponseEntity<UserDto> login(@RequestParam(value = "user") String user,
 			@RequestParam(value = "pass") String pass) {
 
