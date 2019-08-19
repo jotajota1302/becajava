@@ -15,8 +15,8 @@ public class PersonRepository {
 
 	// CONSTRUCTOR
 	public PersonRepository() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersonPersistenceUnit");
-		em = emf.createEntityManager();
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("PersonPersistenceUnit");
+		em = factory.createEntityManager();
 	}
 
 	// METODO CREAR CUENTA
@@ -40,10 +40,10 @@ public class PersonRepository {
 	public List<Person> findAll() {
 
 		List<Person> result = null;
-		try {
+		try {		
 			String hql = "FROM PERSON";
 			Query query = em.createQuery(hql);
-			result = query.getResultList();
+			result = query.getResultList();		
 
 		} catch (Exception e) {
 			System.out.println("Error al buscar personas");

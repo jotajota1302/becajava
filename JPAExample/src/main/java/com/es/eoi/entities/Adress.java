@@ -8,31 +8,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity(name = "person")
+@Entity
 @Getter
 @Setter
-public class Person {
+public class Adress {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idPerson;
+	private int idAdress;
 	
 	@Column
-	private String name;
+	private String adress;
 	
-	@Column
-	private String surname;
-	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "person")
-	private Adress adress;
-	
-	
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private Person person;
 
 }

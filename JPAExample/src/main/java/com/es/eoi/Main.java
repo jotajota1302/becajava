@@ -10,7 +10,8 @@ public class Main {
 		PersonRepository repository= new PersonRepository();
 		
 		Person person= new Person();
-		person.setName("JOSE JUAN");		
+		person.setName("OTRO NOMBRE");
+		person.setSurname("OTRO APELLIDO");
 		
 		repository.create(person);
 		
