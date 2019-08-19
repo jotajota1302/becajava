@@ -1,5 +1,7 @@
 import static org.junit.Assert.fail;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +14,9 @@ public class TestPersonRepository {
 	
 	@Before
 	public void setUp() throws Exception {
+		
+		Logger log = Logger.getLogger("org.hibernate.SQL");
+		log.setLevel(Level.DEBUG);	
 		repository= new PersonRepository();
 	}
 
@@ -26,7 +31,7 @@ public class TestPersonRepository {
 
 	@Test
 	public void testFindAll() {
-//		System.out.println(repository.findAll());
+		System.out.println(repository.findAll());
 	}
 
 	@Test

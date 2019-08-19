@@ -41,9 +41,9 @@ public class PersonRepository {
 
 		List<Person> result = null;
 		try {		
-			String hql = "FROM PERSON";
+			String hql = "from person";
 			Query query = em.createQuery(hql);
-			result = query.getResultList();		
+			result = query.getResultList();	
 
 		} catch (Exception e) {
 			System.out.println("Error al buscar personas");
