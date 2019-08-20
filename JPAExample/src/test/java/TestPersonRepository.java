@@ -1,5 +1,3 @@
-import static org.junit.Assert.fail;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -13,6 +11,8 @@ public class TestPersonRepository {
 
 	PersonRepository repository;
 	
+	Logger logger=Logger.getLogger(TestPersonRepository.class);
+	
 	@Before
 	public void setUp() throws Exception {
 		
@@ -24,14 +24,17 @@ public class TestPersonRepository {
 	@Test
 	public void testCreate() {
 		
+		
+		
+		
 		Person person= new Person();
 		person.setName("PEPE");
 		person.setSurname("PERICO");	
 		Adress adress= new Adress();		
-		adress.setAdress("C/pueblo acantilao");
+		adress.setAdress("C/pueblo acantilao");		
+		adress.setPerson(person);		
 		person.setAdress(adress);
-		adress.setPerson(person);
-		
+				
 		repository.create(person);
 	}
 
@@ -46,14 +49,6 @@ public class TestPersonRepository {
 		System.out.println(var.getName());
 	}
 
-	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testRemove() {
-		fail("Not yet implemented");
-	}	
+	
 	
 }

@@ -12,20 +12,31 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@Entity(name = "adress")
 @Getter
 @Setter
 public class Adress {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int idAdress;
-	
+
 	@Column
 	private String adress;
-	
-	@OneToOne
+
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@PrimaryKeyJoinColumn
 	private Person person;
+
+	public Adress(int idAdress, String adress, Person person) {
+		super();
+		this.idAdress = idAdress;
+		this.adress = adress;
+		this.person = person;
+	}
+
+	public Adress() {
+
+	}
 
 }

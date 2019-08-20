@@ -16,8 +16,7 @@ import lombok.Setter;
 @Setter
 public class Person {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int idPerson;
 	
 	@Column
@@ -26,9 +25,19 @@ public class Person {
 	@Column
 	private String surname;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "person")
+	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
 	private Adress adress;
+
+	public Person(int idPerson, String name, String surname, Adress adress) {
+		super();
+		this.idPerson = idPerson;
+		this.name = name;
+		this.surname = surname;
+		this.adress = adress;
+	}
 	
+	public Person() {	
 	
+	}
 
 }

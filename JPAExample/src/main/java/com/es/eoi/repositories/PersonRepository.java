@@ -29,6 +29,7 @@ public class PersonRepository {
 			System.out.println("Exito al crear la persona");
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			em.getTransaction().rollback();
 			System.out.println("error al crear la persona");
 		}
@@ -64,7 +65,7 @@ public class PersonRepository {
 		return person;
 	}
 
-	// METODO MODIFICAR CUENTA
+	// METODO MODIFICAR PERSON
 	public void update(int id, String name) {
 
 		try {
