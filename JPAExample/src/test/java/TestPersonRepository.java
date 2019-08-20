@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.es.eoi.entities.Adress;
 import com.es.eoi.entities.Person;
 import com.es.eoi.repositories.PersonRepository;
 
@@ -23,10 +24,15 @@ public class TestPersonRepository {
 	@Test
 	public void testCreate() {
 		
-//		Person person= new Person();
-//		person.setName("OTRO NOMBRE");
-//		person.setSurname("OTRO APELLIDO");		
-//		repository.create(person);
+		Person person= new Person();
+		person.setName("PEPE");
+		person.setSurname("PERICO");	
+		Adress adress= new Adress();		
+		adress.setAdress("C/pueblo acantilao");
+		person.setAdress(adress);
+		adress.setPerson(person);
+		
+		repository.create(person);
 	}
 
 	@Test

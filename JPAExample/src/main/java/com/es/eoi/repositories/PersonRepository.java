@@ -56,7 +56,6 @@ public class PersonRepository {
 
 		Person person = null;
 		try {
-
 			person = em.find(Person.class, id);
 
 		} catch (Exception e) {
