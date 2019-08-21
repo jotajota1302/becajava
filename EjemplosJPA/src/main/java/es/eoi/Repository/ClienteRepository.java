@@ -25,7 +25,7 @@ public class ClienteRepository {
 			em.getTransaction().begin();
 			Cliente cliente = new Cliente();
 			cliente.setNombre("juan");
-			cliente.setDireccion("jdfgdsh");
+			cliente.setDireccion("C/Font");
 			cliente.setDni("03765983S");
 			em.persist(cliente);
 			em.getTransaction().commit();

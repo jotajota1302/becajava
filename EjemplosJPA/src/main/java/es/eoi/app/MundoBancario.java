@@ -4,6 +4,8 @@ import java.util.Scanner;
 import es.eoi.Service.BancoService;
 import es.eoi.Service.ClienteService;
 import es.eoi.Service.CuentaService;
+import es.eoi.entity.Banco;
+import es.eoi.entity.Cliente;
 
 public class MundoBancario {
 
@@ -14,24 +16,28 @@ public class MundoBancario {
 		CuentaService cuentaService = new CuentaService();
 
 		//////////// CLIENTES ///////////////
+		
+//		Cliente cliente=clienteService.findByDni("03765983S");
+//		System.out.println(cliente);
+		
 		// FUNCIONA
-		// clienteService.createClient();
+//		 clienteService.createClient();
 
 		//NO FUNCIONA
 		// System.out.println(clienteService.findAllClientes().toString());
 
 		// FUNCIONA
-		// System.out.println(clienteService.findByDni("12345678T"));
+//		 System.out.println(clienteService.findByDni("03765983S"));
 
 		// FUNCIONA
 		// clienteService.removeClient("53763892D");
 
 		// FUNCIONA
-		// clienteService.updateClient("87654321R", "Ramon", "san sebastian");
+		 clienteService.updateClient("03765983S", "Ramon", "C/San sebastian");
 
 		///////////// BANCOS ///////////
 		// FUNCIONA
-		// bancoService.createBanco();
+//		 bancoService.createBanco();
 
 		// FUNCIONA
 		// System.out.println(bancoService.findById(1));
@@ -48,7 +54,10 @@ public class MundoBancario {
 		////////// CUENTAS //////////
 
 		// FUNCIONA
-		// cuentaService.createCuenta();
+		
+//		 Cliente cliente= clienteService.findByDni("03765983S");
+//		 Banco banco=bancoService.findById(2);		
+//		 cuentaService.createCuenta(cliente,banco, 5000.0);
 
 		// FUNCIONA
 		// System.out.println(cuentaService.findById(1));

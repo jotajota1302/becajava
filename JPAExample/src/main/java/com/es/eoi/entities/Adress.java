@@ -24,16 +24,9 @@ public class Adress {
 	@Column
 	private String adress;
 
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL,optional = false)
 	@PrimaryKeyJoinColumn
 	private Person person;
-
-	public Adress(int idAdress, String adress, Person person) {
-		super();
-		this.idAdress = idAdress;
-		this.adress = adress;
-		this.person = person;
-	}
 
 	public Adress() {
 

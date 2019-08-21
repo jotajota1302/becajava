@@ -24,14 +24,13 @@ public class TestPersonRepository {
 	@Test
 	public void testCreate() {
 		
-		
-		
+		Adress adress= new Adress();		
+		adress.setAdress("C/pueblo acantilao");				
 		
 		Person person= new Person();
 		person.setName("PEPE");
 		person.setSurname("PERICO");	
-		Adress adress= new Adress();		
-		adress.setAdress("C/pueblo acantilao");		
+		
 		adress.setPerson(person);		
 		person.setAdress(adress);
 				

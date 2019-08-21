@@ -25,17 +25,10 @@ public class Person {
 	@Column
 	private String surname;
 	
-	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
-	private Adress adress;
+	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL,optional = false)
+		private Adress adress;
 
-	public Person(int idPerson, String name, String surname, Adress adress) {
-		super();
-		this.idPerson = idPerson;
-		this.name = name;
-		this.surname = surname;
-		this.adress = adress;
-	}
-	
+		
 	public Person() {	
 	
 	}
