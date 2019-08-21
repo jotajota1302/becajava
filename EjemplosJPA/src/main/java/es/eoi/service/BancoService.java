@@ -1,8 +1,9 @@
-package es.eoi.Service;
+package es.eoi.service;
 
 import java.util.List;
-import es.eoi.Repository.BancoRepository;
+
 import es.eoi.entity.Banco;
+import es.eoi.repository.BancoRepository;
 
 public class BancoService {
 

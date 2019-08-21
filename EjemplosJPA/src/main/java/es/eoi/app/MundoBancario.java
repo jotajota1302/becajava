@@ -1,11 +1,12 @@
 package es.eoi.app;
 
 import java.util.Scanner;
-import es.eoi.Service.BancoService;
-import es.eoi.Service.ClienteService;
-import es.eoi.Service.CuentaService;
+
 import es.eoi.entity.Banco;
 import es.eoi.entity.Cliente;
+import es.eoi.service.BancoService;
+import es.eoi.service.ClienteService;
+import es.eoi.service.CuentaService;
 
 public class MundoBancario {
 

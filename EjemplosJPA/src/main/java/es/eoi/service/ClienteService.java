@@ -1,8 +1,9 @@
-package es.eoi.Service;
+package es.eoi.service;
 
 import java.util.List;
-import es.eoi.Repository.ClienteRepository;
+
 import es.eoi.entity.Cliente;
+import es.eoi.repository.ClienteRepository;
 
 public class ClienteService {
 

@@ -1,4 +1,4 @@
-package es.eoi.Repository;
+package es.eoi.repository;
 
 import java.util.List;
 

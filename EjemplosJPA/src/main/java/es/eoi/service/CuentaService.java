@@ -1,10 +1,11 @@
-package es.eoi.Service;
+package es.eoi.service;
 
 import java.util.List;
-import es.eoi.Repository.CuentaRepository;
+
 import es.eoi.entity.Banco;
 import es.eoi.entity.Cliente;
 import es.eoi.entity.Cuenta;
+import es.eoi.repository.CuentaRepository;
 
 public class CuentaService {
 
