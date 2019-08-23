@@ -30,7 +30,6 @@ public class BancoRestController {
 	public void updateBanco(@RequestBody BancoDto banco) {
 		Banco entity = new Banco();  
 		BeanUtils.copyProperties(banco,entity);
-
 		service.save(entity);
 	}
 

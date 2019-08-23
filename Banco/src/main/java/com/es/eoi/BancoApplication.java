@@ -1,5 +1,7 @@
 package com.es.eoi;
 
+import java.util.Collections;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +18,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class BancoApplication {
 
 	public static void main(String[] args) {
+		SpringApplication app = new SpringApplication(BancoApplication.class);
+		 app.setDefaultProperties(Collections.singletonMap("server.port", "8083"));
 		SpringApplication.run(BancoApplication.class, args);
 	}
 

@@ -25,7 +25,7 @@ public class CuentaRestController {
 	}
 
 	@PostMapping("/cuenta")
-	public void updateCuenta(@RequestBody Cuenta cuenta) {
+	public void updateCuenta(@RequestBody Cuenta cuenta) {	
 		service.save(cuenta);
 	}
 

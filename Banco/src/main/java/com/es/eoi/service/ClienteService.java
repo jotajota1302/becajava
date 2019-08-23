@@ -22,8 +22,8 @@ public class ClienteService {
 		return clienteRepository.findAll();
 	}
 
-	public Cliente findByNif(String nif) {
-		return clienteRepository.findById(nif).get();
+	public Cliente findByDni(String dni) {
+		return clienteRepository.findById(dni).get();
 	}
 
 	public void remove(String nif) {

@@ -19,9 +19,9 @@ public class ClienteRestController {
 	@Autowired
 	ClienteService service;
 
-	@GetMapping("/cliente/{id}")
-	public Cliente findCliente(@PathVariable String nif) {
-		return service.findByNif(nif);
+	@GetMapping("/cliente/{dni}")
+	public Cliente findCliente(@PathVariable String dni) {
+		return service.findByDni(dni);
 	}
 
 	@PostMapping("/cliente")
