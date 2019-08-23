@@ -21,6 +21,10 @@ public class BancoService {
 	public List<Banco> findAll() {
 		return bancoRepository.findAll();
 	}
+	
+	public Banco findFirstByAdress(String ciudad){
+			return bancoRepository.findFirstByCiudad(ciudad);
+	}
 
 	public Banco findById(int id) {
 		return bancoRepository.findById(id).get();

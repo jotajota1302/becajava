@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 import com.es.eoi.entity.Banco;
 
 @Repository
-public interface BancoRepository extends JpaRepository<Banco, Integer> {
+public interface BancoRepository extends JpaRepository<Banco, Integer>{
+	
+	public Banco findFirstByCiudad(String ciudad);	
+	
+	
 
 }

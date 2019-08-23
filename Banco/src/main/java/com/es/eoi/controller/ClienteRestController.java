@@ -14,7 +14,7 @@ import com.es.eoi.entity.Cliente;
 import com.es.eoi.service.ClienteService;
 
 @RestController
-public class ClientRestController {
+public class ClienteRestController {
 
 	@Autowired
 	ClienteService service;

@@ -1,5 +1,6 @@
 package com.es.eoi.entity;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,6 +22,18 @@ public class Cliente {
 
 	@Column(name = "NOMBRE")
 	private String nombre;
+	
+	@Column(name = "APELLIDOS")
+	private String apellidos;
+	
+	@Column(name = "MAIL")
+	private String mail;
+	
+	@Column(name = "FECHA_ALTA")
+	private Date fechaAlta;
+	
+	@Column(name = "TELEFONO")
+	private String telefono;
 
 	@Column(name = "DIRECCION")
 	private String direccion;
