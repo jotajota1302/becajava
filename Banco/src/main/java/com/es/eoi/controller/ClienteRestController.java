@@ -31,7 +31,7 @@ public class ClienteRestController {
 
 	@DeleteMapping("/cliente/{dni}")
 	public void deleteCliente(@PathVariable String dni) {
-		service.remove(id);
+		service.remove(dni);
 	}
 
 	@GetMapping("/cliente/all")
