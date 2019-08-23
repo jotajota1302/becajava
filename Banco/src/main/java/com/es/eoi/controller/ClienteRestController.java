@@ -29,8 +29,8 @@ public class ClienteRestController {
 		service.save(cliente);
 	}
 
-	@DeleteMapping("/cliente/{id}")
-	public void deleteCliente(@PathVariable String id) {
+	@DeleteMapping("/cliente/{dni}")
+	public void deleteCliente(@PathVariable String dni) {
 		service.remove(id);
 	}
 
