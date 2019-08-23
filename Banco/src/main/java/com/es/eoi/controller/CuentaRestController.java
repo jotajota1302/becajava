@@ -2,6 +2,7 @@ package com.es.eoi.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.es.eoi.dto.CuentaDto;
 import com.es.eoi.entity.Cuenta;
 import com.es.eoi.service.CuentaService;
 
@@ -17,7 +19,7 @@ import com.es.eoi.service.CuentaService;
 public class CuentaRestController {
 
 	@Autowired
-	CuentaService service;
+	CuentaService service;	
 
 	@GetMapping("/cuenta/{id}")
 	public Cuenta findCuenta(@PathVariable String id) {
@@ -25,8 +27,11 @@ public class CuentaRestController {
 	}
 
 	@PostMapping("/cuenta")
-	public void updateCuenta(@RequestBody Cuenta cuenta) {	
-		service.save(cuenta);
+	public void updateCuenta(@RequestBody CuentaDto cuenta) {	
+		Cuenta entity= new Cuenta();	
+		BeanUtils.copyProperties(cuenta, entity);		
+		
+		service.save(entity);
 	}
 
 	@DeleteMapping("/cuenta/{id}")
