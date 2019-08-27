@@ -34,8 +34,9 @@ public class UserService {
 
 	public List<User> findAllByName(String name) {
 
-		ExampleMatcher ignoringExampleMatcher = ExampleMatcher.matchingAny().withMatcher("name",
-				ExampleMatcher.GenericPropertyMatchers.startsWith());
+		ExampleMatcher ignoringExampleMatcher = ExampleMatcher.
+				matchingAny().
+				withMatcher("status",	ExampleMatcher.GenericPropertyMatchers.startsWith());
 
 		User user = new User();
 		user.setName(name);
