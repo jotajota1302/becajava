@@ -7,6 +7,8 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import com.querydsl.core.types.Predicate;
+
 import es.eoi.facenet.entities.User;
 import es.eoi.facenet.repositories.UserRepository;
 
@@ -28,21 +30,34 @@ public class UserService {
 		this.repository.deleteById(id);
 	}
 
-	public List<User> findAll() {
-		return this.repository.findAll();
+	public List<User> findAll() {		
+		return (List<User>) repository.findAll();
 	}
 
+	public List<User> findByName(String name) {
+		
+		return repository.findByName(name);
+	}
+	
+	
+	
 	public List<User> findAllByName(String name) {
 
-		ExampleMatcher ignoringExampleMatcher = ExampleMatcher.
+		ExampleMatcher matcher = ExampleMatcher.
 				matchingAny().
-				withMatcher("status",	ExampleMatcher.GenericPropertyMatchers.startsWith());
+				withMatcher("status",	ExampleMatcher.GenericPropertyMatchers.startsWith()).
+				withMatcher("pepito",	ExampleMatcher.GenericPropertyMatchers.contains());
 
 		User user = new User();
 		user.setName(name);
-		Example<User> userExample = Example.of(user, ignoringExampleMatcher);
+		Example<User> userExample = Example.of(user, matcher);
 
 		return repository.findAll(userExample);
+	}
+	
+	public List<User> findByPredicate(Predicate predicate) {
+
+		return (List<User>) repository.findAll(predicate);
 	}
 
 }

@@ -1,16 +1,14 @@
-package es.eoi.facenet.dto;
+package es.eoi.facenet.filter;
 
 import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
-@JsonAutoDetect
-public class UserDto {
+public class UserFilter {	
 	
 	private int id;
 
@@ -26,5 +24,4 @@ public class UserDto {
 
 	private String password;
 
-	
 }
