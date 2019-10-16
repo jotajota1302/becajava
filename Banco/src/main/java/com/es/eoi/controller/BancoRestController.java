@@ -2,6 +2,8 @@ package com.es.eoi.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +19,7 @@ import com.es.eoi.service.BancoService;
 
 @RestController
 public class BancoRestController {
-
+	
 	@Autowired
 	BancoService service;	
 	
@@ -38,8 +40,8 @@ public class BancoRestController {
 		service.remove(Integer.parseInt(id));
 	}
 
-	@GetMapping("/banco/all")
-	public List<Banco> findAll() {
+	@GetMapping("/banco")	
+	public List<Banco> findAll() {			
 		return service.findAll();
 	}
 

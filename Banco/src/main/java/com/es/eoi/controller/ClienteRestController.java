@@ -38,7 +38,7 @@ public class ClienteRestController {
 		service.remove(dni);
 	}
 
-	@GetMapping("/cliente/all")
+	@GetMapping("/cliente")
 	public List<Cliente> findAll() {
 		return service.findAll();
 	}

@@ -18,7 +18,6 @@ import com.querydsl.core.types.Predicate;
 import es.eoi.facenet.dto.UserDto;
 import es.eoi.facenet.entities.User;
 import es.eoi.facenet.repositories.UserRepository;
-import es.eoi.facenet.repositories.impl.UserRepositoryImpl;
 import es.eoi.facenet.services.UserService;
  
 @RestController

@@ -39,7 +39,7 @@ public class CuentaRestController {
 		service.remove(Integer.parseInt(id));
 	}
 
-	@GetMapping("/cuenta/all")
+	@GetMapping("/cuenta")
 	public List<Cuenta> findAll() {
 		return service.findAll();
 	}
