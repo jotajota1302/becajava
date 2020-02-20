@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.es.eoi</groupId>
-	<artifactId>Banco</artifactId>
+	<artifactId>bancaApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Banco</name>
 	<description>Banco project with spring boot</description>
