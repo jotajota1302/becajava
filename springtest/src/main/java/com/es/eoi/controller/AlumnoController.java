@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.es.eoi.services.AlumnoService;
 
-@Controller(value = "AlumnoController")
+@Controller
 public class AlumnoController {
 	
 	@Autowired

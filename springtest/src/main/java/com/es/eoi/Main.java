@@ -18,11 +18,11 @@ public class Main {
 		@SuppressWarnings("resource")
 		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);		
 	
-		AlumnoController controller = context.getBean("AlumnoController",AlumnoController.class);
+		AlumnoController controller = context.getBean(AlumnoController.class);
 		
-		AlumnoService service= context.getBean("AlumnoService",AlumnoService.class);
+		AlumnoService service= context.getBean(AlumnoService.class);
 		
-		AlumnoRepository repository=context.getBean("AlumnoRepository",AlumnoRepository.class);
+		AlumnoRepository repository=context.getBean(AlumnoRepository.class);
 				
 		System.out.println("hola " + controller.findName(1));
 		System.out.println("hola " + service.findName(1));
@@ -32,7 +32,7 @@ public class Main {
 //		Dog dog= new Dog();
 //		alumno.dog=dog;
 		
-		Alumno al=context.getBean("Alumno",Alumno.class);
+		Alumno al=context.getBean(Alumno.class);
 		
 		System.out.println(al.dog.name);
 	}
