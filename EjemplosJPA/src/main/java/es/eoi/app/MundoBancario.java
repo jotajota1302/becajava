@@ -2,8 +2,6 @@ package es.eoi.app;
 
 import java.util.Scanner;
 
-import es.eoi.entity.Banco;
-import es.eoi.entity.Cliente;
 import es.eoi.service.BancoService;
 import es.eoi.service.ClienteService;
 import es.eoi.service.CuentaService;
@@ -22,7 +20,7 @@ public class MundoBancario {
 //		System.out.println(cliente);
 		
 		// FUNCIONA
-//		 clienteService.createClient();
+		 clienteService.createClient();
 
 		//NO FUNCIONA
 		// System.out.println(clienteService.findAllClientes().toString());
@@ -34,7 +32,7 @@ public class MundoBancario {
 		// clienteService.removeClient("53763892D");
 
 		// FUNCIONA
-		 clienteService.updateClient("03765983S", "Ramon", "C/San sebastian");
+//		 clienteService.updateClient("03765983S", "Ramon", "C/San sebastian");
 
 		///////////// BANCOS ///////////
 		// FUNCIONA

@@ -5,7 +5,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.es.eoi.controller.AlumnoController;
 import com.es.eoi.entities.Alumno;
-import com.es.eoi.entities.Dog;
 import com.es.eoi.repositories.AlumnoRepository;
 import com.es.eoi.services.AlumnoService;
 
