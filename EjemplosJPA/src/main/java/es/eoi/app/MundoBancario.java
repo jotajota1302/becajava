@@ -26,7 +26,7 @@ public class MundoBancario {
 		// System.out.println(clienteService.findAllClientes().toString());
 
 		// FUNCIONA
-//		 System.out.println(clienteService.findByDni("03765983S"));
+		 System.out.println(clienteService.findByDni("03765983S"));
 
 		// FUNCIONA
 		// clienteService.removeClient("53763892D");
