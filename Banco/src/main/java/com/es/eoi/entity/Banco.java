@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity(name = "BANCO")
 public class Banco {
 	
