@@ -12,5 +12,10 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	public List<User> findByNombreOrSaldo(String nombre,Double saldo);
 	
+	
+	
+	
+	
+	
 
 }

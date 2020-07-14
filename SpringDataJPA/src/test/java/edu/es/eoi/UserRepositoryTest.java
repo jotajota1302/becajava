@@ -22,6 +22,7 @@ public class UserRepositoryTest {
 		
 		System.out.println("hola");
 		repository.findByNombreOrSaldo("JJ",50.0);
+		repository.findById(1);
 		System.out.println("adios");
 	}
 
