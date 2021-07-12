@@ -1,7 +1,5 @@
 package es.eoi.facenet.repositories;
 
-import javax.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
@@ -17,7 +15,6 @@ import es.eoi.facenet.entities.QUser;
 import es.eoi.facenet.entities.User;
 
 @Repository
-@Transactional
 public interface UserRepository extends JpaRepository<User, Integer>,QueryByExampleExecutor <User>,UserRepositoryCustom,QuerydslPredicateExecutor<User>,QuerydslBinderCustomizer<QUser> {
 	
 	 @Override

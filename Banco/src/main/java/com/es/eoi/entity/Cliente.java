@@ -9,9 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity(name = "CLIENTES")
 public class Cliente {
 	@Id
